@@ -8,10 +8,10 @@ public class playerMovement : MonoBehaviour {
 	constantemente, solo cuando son pedidos, así que el coste es 
 	muy bajo. */
 
-	[Range(200, 400)]
-	public float  movementSpeed = 40f; //Determina la velocidad de movimiento.
+	[Range(400, 800)]
+	public float  movementSpeed; //Determina la velocidad de movimiento.
 
-	float smoothMove = .05f; //Hace más suave el movimiento.
+	float smoothMove = .005f; //Hace más suave el movimiento.
 	private Vector3 velocity = new Vector3();
 	Vector3 targetVelocity;
 
@@ -28,7 +28,7 @@ public class playerMovement : MonoBehaviour {
 	private Vector3 wallVel; //Determina la velocidad de movimiento en el muro.
 	private Vector2 jumpWall = new Vector2(1, 1); //Determina el angulo de salto.
 
-	[Range(1, 10)]
+	[Range(10, 20)]
 	public int jumpVel;
 
 
@@ -37,7 +37,6 @@ public class playerMovement : MonoBehaviour {
 
 
 	private RaycastHit2D hit;
-	private Vector3 offset;
 
 
 	void Awake(){
@@ -48,7 +47,7 @@ public class playerMovement : MonoBehaviour {
 	void FixedUpdate () {
 
 		//Da un valor entre movementSpeed y -movementSpeed por el tiempo.
-		horizontalMove = Input.GetAxis("Horizontal") * movementSpeed * Time.fixedDeltaTime;
+		horizontalMove = Input.GetAxis("Horizontal");
 
 
 		//Diferencia entre la situacion del muro y el movimiento normal.
@@ -77,7 +76,7 @@ public class playerMovement : MonoBehaviour {
 			targetVelocity = new Vector2(0, rb.velocity.y);
 		}
 		else{
-			targetVelocity = new Vector2(horizontalMove, rb.velocity.y);
+			targetVelocity = new Vector2(horizontalMove  * movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
 		}
 		rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothMove);
 		
@@ -99,8 +98,8 @@ public class playerMovement : MonoBehaviour {
 
 	//---Salto en el Muro---\\
 	void jumpOnWall(){
-		if(Input.GetButtonDown("Jump")){
-			jumpWall.x *= directionLook;
+		if(Input.GetButtonDown("Jump") && horizontalMove != 0){
+			jumpWall.x *= horizontalMove;
 			rb.velocity = jumpWall * jumpVel;
 		}
 	}
@@ -108,7 +107,7 @@ public class playerMovement : MonoBehaviour {
 	//---Detecta si Está Tocando un Muro---\\
 	void onWall(){
 		if (!detectGround()){
-			wallVel = new Vector2(0, rb.velocity.y * 0.125f);
+			wallVel = new Vector2(0, rb.velocity.y / 2);
 			rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
 
 			//Animacion
@@ -119,9 +118,8 @@ public class playerMovement : MonoBehaviour {
 
 	//---Detecta el Suelo---\\
 	bool detectGround(){
-		offset = new Vector3(transform.position.x, transform.position.y -0.5f);
-		//Debug.DrawRay(offset, Vector2.down / 3, Color.green);
-		hit = Physics2D.CircleCast(offset, 0.08f, Vector2.down, 0.08f, groundLayer);
+		//Debug.DrawRay(transform.position, Vector2.down, Color.white);
+		hit = Physics2D.CircleCast(transform.position, 1f, Vector2.down, 1f, groundLayer);
 		if (hit.collider != null) {
 			return true;
 		}
@@ -130,9 +128,9 @@ public class playerMovement : MonoBehaviour {
 
 	//---Detecta si Está Tocando una Pared---\\
 	bool detecttWall(){
-		offset = new Vector3(transform.position.x,transform.position.y - 0.1f);
-		//Debug.DrawRay(offset, Vector2.left / 3, Color.green);
-		hit = Physics2D.CircleCast(offset, 0.21f,  Vector2.left, 0.21f, wallLayer);
+		//Hay que poner un offset para la x, desplazarlo hacia la derecha.
+		//Debug.DrawRay(transform.position, Vector2.left/2, Color.green);
+		hit = Physics2D.CircleCast(transform.position, 0.45f,  Vector2.left, 0.45f, wallLayer);
 		if (hit.collider != null) {
 			return true;
 		}
@@ -151,5 +149,11 @@ public class playerMovement : MonoBehaviour {
 		lookingRight = !lookingRight;
 		directionLook = -directionLook;
 		transform.Rotate(0f, 180f, 0f);
+	}
+
+	void OnDrawGizmosSelected()
+    {
+		Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, 0.45f);
 	}
 }

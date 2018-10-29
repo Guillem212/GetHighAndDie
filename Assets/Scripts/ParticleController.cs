@@ -14,8 +14,6 @@ public class ParticleController : MonoBehaviour
     private ParticleSystem.MainModule main; 
 
     public LayerMask groundLayer;
-
-    private Vector3 offset;
     private RaycastHit2D hit;
 
 
@@ -57,9 +55,8 @@ public class ParticleController : MonoBehaviour
     }
 
     bool detectGround(){	
-		offset = new Vector3(transform.position.x, transform.position.y -0.5f);
-		//Debug.DrawRay(offset, Vector2.down / 3, Color.green);
-		hit = Physics2D.CircleCast(offset, 0.05f, Vector2.down, 0.05f, groundLayer);
+		//Debug.DrawRay(offset, Vector2.down, Color.green);
+		hit = Physics2D.CircleCast(transform.position, 0.05f, Vector2.down, 0.05f, groundLayer);
 		if (hit.collider != null) {
 			return true;
 		}
