@@ -13,6 +13,7 @@ public class playerMovement : MonoBehaviour {
 
 	float smoothMove = .05f; //Hace más suave el movimiento.
 	private Vector3 velocity = new Vector3();
+	Vector3 targetVelocity;
 
 	float horizontalMove;
 	public static bool lookingRight = true;
@@ -72,15 +73,13 @@ public class playerMovement : MonoBehaviour {
 	//---Movimiento Vertical---\\
 	void Movement() {
 		//Crea el vector de velocidad en y.
-		Vector3 targetVelocity = new Vector2(horizontalMove, rb.velocity.y);
-
-		//Aplica los calculos al rigidBody del player.
-		/* if(horizontalMove == 0){
-			rb.velocity = Vector3.zero;
-
-		}else{*/
-			rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothMove);
-		//}
+		if(horizontalMove == 0){
+			targetVelocity = new Vector2(0, rb.velocity.y);
+		}
+		else{
+			targetVelocity = new Vector2(horizontalMove, rb.velocity.y);
+		}
+		rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothMove);
 		
 	}
 
