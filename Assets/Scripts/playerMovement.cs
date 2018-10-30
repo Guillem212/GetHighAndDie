@@ -32,8 +32,8 @@ public class playerMovement : MonoBehaviour {
 	public int jumpVel;
 
 
-	float fallMultiplier = 2.5f;
-	float lowerMultiplier = 2f;
+	float fallMultiplier = 5f;
+	float lowerMultiplier = 4f;
 
 
 	private RaycastHit2D hit;
