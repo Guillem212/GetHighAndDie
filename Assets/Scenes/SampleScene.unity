@@ -26519,11 +26519,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4795031349647186, guid: bf6f0361ea9aac7449ba7f398394750c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4795031349647186, guid: bf6f0361ea9aac7449ba7f398394750c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 38.14
+      value: 17.7
       objectReference: {fileID: 0}
     - target: {fileID: 4795031349647186, guid: bf6f0361ea9aac7449ba7f398394750c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26640,6 +26640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114330318100182174, guid: bf6f0361ea9aac7449ba7f398394750c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf6f0361ea9aac7449ba7f398394750c, type: 3}

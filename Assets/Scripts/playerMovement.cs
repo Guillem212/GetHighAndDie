@@ -11,29 +11,30 @@ public class playerMovement : MonoBehaviour {
 	[Range(400, 800)]
 	public float  movementSpeed; //Determina la velocidad de movimiento.
 
-	float smoothMove = .005f; //Hace más suave el movimiento.
+	private float smoothMove = .005f; //Hace más suave el movimiento.
 	private Vector3 velocity = new Vector3();
 	Vector3 targetVelocity;
 
-	float horizontalMove;
+	private float horizontalMove;
 	public static bool lookingRight = true;
-	int directionLook = 1; // 1 - Mirando hacia la derecha, -1 - Mirando hacia la izquierda.
 
 	private Rigidbody2D rb;
 
 
 	public LayerMask groundLayer; //Detecta el layerMask del suelo.
-	public LayerMask wallLayer; //Detecta el layerMask del muro.
 
 	private Vector3 wallVel; //Determina la velocidad de movimiento en el muro.
 	private Vector2 jumpWall = new Vector2(1, 1); //Determina el angulo de salto.
+	private bool isOnWall = false;
+
+	private Vector3 offset = new Vector3(0f, -1f, 0f);
 
 	[Range(10, 20)]
 	public int jumpVel;
 
 
-	float fallMultiplier = 5f;
-	float lowerMultiplier = 4f;
+	private float fallMultiplier = 7f;
+	private float lowerMultiplier = 2f;
 
 
 	private RaycastHit2D hit;
@@ -45,21 +46,23 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-
 		//Da un valor entre movementSpeed y -movementSpeed por el tiempo.
 		horizontalMove = Input.GetAxis("Horizontal");
 
-
 		//Diferencia entre la situacion del muro y el movimiento normal.
-		if(Input.GetButton("GrapWall") && detecttWall()){
+		if(Input.GetButton("GrapWall")){
 			onWall();
 		}
 		else{
+			isOnWall = false;
+		}
+		if(!isOnWall){
 			Movement();
 			jumpOnGround();
 		}
 	}
 	void Update(){
+
 		//Rota al jugador
 		if (horizontalMove < 0 && lookingRight){
 			Flip();
@@ -82,6 +85,38 @@ public class playerMovement : MonoBehaviour {
 		
 	}
 
+	//---Detecta si Está Tocando un Muro---\\
+	void onWall(){
+		if (!detectGround()){
+			if(detectLefttWall()){
+				isOnWall = true;
+				wallVel = new Vector2(0, rb.velocity.y / 2);
+				rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
+
+				jumpOnWall(1);
+			}
+			else if(detectRightWall()){
+				isOnWall = true;
+				wallVel = new Vector2(0, rb.velocity.y / 2);
+				rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
+
+				jumpOnWall(-1);
+			}
+			else{
+				isOnWall = false;
+			}
+		}
+		else{
+			isOnWall =false;
+		}
+	}
+
+	void attackPlayer(){
+		if (detectEnemiesHit()){
+			print("Enemigo Golpeado");
+		}
+	}
+
 	//---Salto Normal---\\
 	void jumpOnGround(){
 		if (Input.GetButtonDown("Jump") && detectGround()){
@@ -97,44 +132,50 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	//---Salto en el Muro---\\
-	void jumpOnWall(){
+	void jumpOnWall(int direction){
 		if(Input.GetButtonDown("Jump") && horizontalMove != 0){
-			jumpWall.x *= horizontalMove;
+			isOnWall = false;
+			jumpWall.x *= direction;
 			rb.velocity = jumpWall * jumpVel;
-		}
-	}
-
-	//---Detecta si Está Tocando un Muro---\\
-	void onWall(){
-		if (!detectGround()){
-			wallVel = new Vector2(0, rb.velocity.y / 2);
-			rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
-
-			//Animacion
-
-			jumpOnWall();
 		}
 	}
 
 	//---Detecta el Suelo---\\
 	bool detectGround(){
-		//Debug.DrawRay(transform.position, Vector2.down, Color.white);
-		hit = Physics2D.CircleCast(transform.position, 1f, Vector2.down, 1f, groundLayer);
+		Debug.DrawRay(transform.position + offset, Vector2.down * 0.2f, Color.white);
+		hit = Physics2D.CircleCast(transform.position + offset, 0.2f, Vector2.down, 0.2f, groundLayer);
 		if (hit.collider != null) {
 			return true;
 		}
 		return false;
 	}
 
-	//---Detecta si Está Tocando una Pared---\\
-	bool detecttWall(){
-		//Hay que poner un offset para la x, desplazarlo hacia la derecha.
-		//Debug.DrawRay(transform.position, Vector2.left/2, Color.green);
-		hit = Physics2D.CircleCast(transform.position, 0.45f,  Vector2.left, 0.45f, wallLayer);
-		if (hit.collider != null) {
+	bool detectEnemiesHit(){
+		hit = Physics2D.Raycast(transform.position, Vector2.right);
+		Debug.DrawRay(transform.position, Vector2.left, Color.green);
+		if (hit.collider.tag == "Enemy"){
 			return true;
 		}
-		
+
+		return false;
+	}
+
+	bool detectRightWall(){
+		hit = Physics2D.Raycast(transform.position, Vector2.right, 0.5f,  groundLayer);
+		if (hit.collider != null){
+			Debug.DrawRay(transform.position, Vector2.right * 0.5f, Color.green);
+			return true;
+		}
+
+		return false;
+	}
+	bool detectLefttWall(){
+		hit = Physics2D.Raycast(transform.position, Vector2.left, 0.5f, groundLayer);
+		if (hit.collider != null){
+			Debug.DrawRay(transform.position, Vector2.left * 0.5f, Color.blue);
+			return true;
+		}
+
 		return false;
 	}
 
@@ -147,13 +188,6 @@ public class playerMovement : MonoBehaviour {
 		solo hace falta programarlo hacia un lado. */
 
 		lookingRight = !lookingRight;
-		directionLook = -directionLook;
 		transform.Rotate(0f, 180f, 0f);
-	}
-
-	void OnDrawGizmosSelected()
-    {
-		Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, 0.45f);
 	}
 }

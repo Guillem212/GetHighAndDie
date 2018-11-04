@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187094820352222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.79, y: -4.96, z: 0}
+  m_LocalPosition: {x: -0.21, y: -0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4795031349647186}
@@ -38,7 +38,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187094820352222}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 012d4aeb8e09998489dc9d102b5db7bb, type: 3}
   m_Name: 
@@ -77,7 +77,7 @@ Transform:
   m_GameObject: {fileID: 1225522325983740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.4814, y: 0.4814, z: -0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4208479404629328}
   m_Father: {fileID: 0}
@@ -120,15 +120,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 97569c434ebfdb34bba7aa61bc605cbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50bf9e419595851478ff235c77091b3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.24, y: 10.24}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &114442010074777918
@@ -143,14 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d807b3469726a134091af6568f2935ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 200
+  movementSpeed: 400
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   wallLayer:
     serializedVersion: 2
     m_Bits: 1024
-  jumpVel: 6
+  jumpVel: 10
 --- !u!50 &50307222469397032
 Rigidbody2D:
   serializedVersion: 4
@@ -168,7 +168,7 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -185,6 +185,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18, y: -0.3229642}
-  m_Size: {x: 2.915944, y: 9.61}
+  m_Offset: {x: -0.0422197, y: 0.31257057}
+  m_Size: {x: 0.70668685, y: 2.4092522}
   m_Direction: 0
