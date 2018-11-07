@@ -30,7 +30,7 @@ public class playerMovement : MonoBehaviour {
 	private Vector3 offset = new Vector3(0f, -1f, 0f);
 
 	[Range(10, 20)]
-	public int jumpVel;
+	public float jumpVel;
 
 
 	private float fallMultiplier = 7f;

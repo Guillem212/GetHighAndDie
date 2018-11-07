@@ -61,6 +61,8 @@ GameObject:
   - component: {fileID: 114442010074777918}
   - component: {fileID: 50307222469397032}
   - component: {fileID: 237015263}
+  - component: {fileID: 962387163}
+  - component: {fileID: 962387167}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -185,3 +187,39 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0422197, y: 0.31257057}
   m_Size: {x: 0.70668685, y: 2.4092522}
   m_Direction: 0
+--- !u!114 &962387163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225522325983740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1cd7d123f70236448b23a309e095fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostDelay: 0.05
+  ghostInstannce: {fileID: 0}
+  makeGhost: 0
+--- !u!114 &962387167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225522325983740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecdad45540b7a8146af3703c489dd287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drugActive: 0
+  speedActive: 0
+  cocaineActive: 0
+  hashActive: 0
+  methActive: 0
+  speed: 7000
+  delay: 0.05
+  delayPress: 1
+  startDelay: 0
