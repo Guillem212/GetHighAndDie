@@ -1,0 +1,855 @@
+fileFormatVersion: 2
+guid: 64428fdaa020671419ab9a4249990baa
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Joint Smoking_0
+    21300002: Joint Smoking_2
+    21300004: Joint Smoking_3
+    21300006: Joint Smoking_5
+    21300008: Joint Smoking_7
+    21300010: Joint Smoking_8
+    21300012: Joint Smoking_21
+    21300014: Joint Smoking_22
+    21300016: Joint Smoking_23
+    21300018: Joint Smoking_24
+    21300020: Joint Smoking_25
+    21300022: Joint Smoking_27
+    21300024: Joint Smoking_33
+    21300026: Joint Smoking_34
+    21300028: Joint Smoking_35
+    21300030: Joint Smoking_37
+    21300032: Joint Smoking_38
+    21300034: Joint Smoking_39
+    21300036: Joint Smoking_56
+    21300038: Joint Smoking_58
+    21300040: Joint Smoking_59
+    21300042: Joint Smoking_63
+    21300044: Joint Smoking_57
+    21300046: Joint Smoking_65
+    21300048: Joint Smoking_66
+    21300050: Joint Smoking_68
+    21300052: Joint Smoking_79
+    21300054: Joint Smoking_80
+    21300056: Joint Smoking_81
+    21300058: Joint Smoking_82
+    21300060: Joint Smoking_83
+    21300062: Joint Smoking_85
+    21300064: Joint Smoking_86
+    21300066: Joint Smoking_90
+    21300068: Joint Smoking_92
+    21300070: Joint Smoking_100
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 190
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Joint Smoking_0
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 2413
+        width: 135
+        height: 450
+      alignment: 9
+      pivot: {x: 0.58518517, y: 0.37555557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409f50a991ec00a47bb1211e607f1b38
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_2
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 2413
+        width: 135
+        height: 450
+      alignment: 9
+      pivot: {x: 0.58518517, y: 0.37555557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b41b15143b50c4abe050c1cefdb893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_3
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 2413
+        width: 135
+        height: 450
+      alignment: 9
+      pivot: {x: 0.58518517, y: 0.37555557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8b6c06e80a08949a0f0eec4a061ccb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_5
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 2413
+        width: 137
+        height: 450
+      alignment: 9
+      pivot: {x: 0.57664233, y: 0.37555555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02439103cb7a8b2499c9b7c5cca8464d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_7
+      rect:
+        serializedVersion: 2
+        x: 2087
+        y: 2413
+        width: 136
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5808824, y: 0.37555555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464621d94187e294facf770a5afdbe6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_8
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 2413
+        width: 135
+        height: 450
+      alignment: 9
+      pivot: {x: 0.58518517, y: 0.37555555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc0f4bdd9ba704479abf4ee74fad120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_21
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1935
+        width: 135
+        height: 450
+      alignment: 9
+      pivot: {x: 0.45925924, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dafa573095d208e48ba446cb747d1d56
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_22
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 1935
+        width: 124
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41017ad584fb48e419112c3d2ec381a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_23
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 1938
+        width: 135
+        height: 450
+      alignment: 9
+      pivot: {x: 0.4148148, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d56030d461bb2a4cad0b936905d4b3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_24
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1935
+        width: 135
+        height: 450
+      alignment: 9
+      pivot: {x: 0.45925924, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b224b69321cb4b646a3bbd0e3b22b7e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_25
+      rect:
+        serializedVersion: 2
+        x: 2095
+        y: 1935
+        width: 148
+        height: 450
+      alignment: 9
+      pivot: {x: 0.4391892, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6066602e26e6942b5f167b6130d2fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_27
+      rect:
+        serializedVersion: 2
+        x: 2582
+        y: 1935
+        width: 136
+        height: 450
+      alignment: 9
+      pivot: {x: 0.4117647, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 979734526a28e914b8bf3d3bf4d395fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_33
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1457
+        width: 293
+        height: 450
+      alignment: 9
+      pivot: {x: 0.21160409, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 952152aa0e958794ba84abfca36f64be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_34
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 1457
+        width: 495
+        height: 450
+      alignment: 9
+      pivot: {x: 0.4989899, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f58136ed379e04ab2e5b14d7e813f9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_35
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 1457
+        width: 298
+        height: 450
+      alignment: 9
+      pivot: {x: 0.19127516, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 631136eed9a0cce4398d20e53a8ae0b8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_37
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1457
+        width: 293
+        height: 450
+      alignment: 9
+      pivot: {x: 0.21160409, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105d2d83e800f0f45be9db3b1ebd345f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_38
+      rect:
+        serializedVersion: 2
+        x: 1913
+        y: 1457
+        width: 495
+        height: 450
+      alignment: 9
+      pivot: {x: 0.4989899, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838ac15294575f94391e93f40a18ff3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_39
+      rect:
+        serializedVersion: 2
+        x: 2582
+        y: 1457
+        width: 298
+        height: 450
+      alignment: 9
+      pivot: {x: 0.18791947, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28d08ce94fd7df45b33c6a2b9ef7506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_56
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 973
+        width: 293
+        height: 461
+      alignment: 9
+      pivot: {x: 0.21160409, y: 0.36659437}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc0b9388dfdd0c4090e5a57da775f6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_58
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 973
+        width: 225
+        height: 461
+      alignment: 9
+      pivot: {x: 0.2488889, y: 0.36659437}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b31a51c5c9a1b94a904fd3e6439fe5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_59
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 973
+        width: 293
+        height: 467
+      alignment: 9
+      pivot: {x: 0.21160409, y: 0.36188436}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e4ba147cf452f42938ffdee12d2b3b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_63
+      rect:
+        serializedVersion: 2
+        x: 2745
+        y: 1423
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c617a2a32fa23ee46ba9edd40d52b7e5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_57
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 973
+        width: 495
+        height: 450
+      alignment: 9
+      pivot: {x: 0.4989899, y: 0.37555557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbf20dc90db9bed47b8537d88a2c72a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_65
+      rect:
+        serializedVersion: 2
+        x: 1913
+        y: 973
+        width: 495
+        height: 450
+      alignment: 9
+      pivot: {x: 0.4989899, y: 0.37555557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725be23b83da4c5439d4ab0104909be0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_66
+      rect:
+        serializedVersion: 2
+        x: 2582
+        y: 973
+        width: 236
+        height: 473
+      alignment: 9
+      pivot: {x: 0.23728813, y: 0.35729387}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4763f22285edf514ba5da9df640f7919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_68
+      rect:
+        serializedVersion: 2
+        x: 2807
+        y: 1412
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cde33299b9c35b4c962b61a10e28390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_79
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 945
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669fe4c9657d8db43959234ce8ca188a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_80
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 496
+        width: 315
+        height: 467
+      alignment: 9
+      pivot: {x: 0.1968254, y: 0.3490364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e6105b3e7f8f348a137efc80c097d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_81
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 495
+        width: 315
+        height: 450
+      alignment: 9
+      pivot: {x: 0.21269841, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b61003b8c0780ce4a8004fa43103b0cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_82
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 495
+        width: 298
+        height: 450
+      alignment: 9
+      pivot: {x: 0.18791947, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5201f1f40f148e34199a3e65f175b9b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_83
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 495
+        width: 341
+        height: 450
+      alignment: 9
+      pivot: {x: 0.2580645, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e98572fb5ecc49468e2422da37ea214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_85
+      rect:
+        serializedVersion: 2
+        x: 2087
+        y: 495
+        width: 193
+        height: 450
+      alignment: 9
+      pivot: {x: 0.37823832, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677d9c7eae754ae44be47051be344572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_86
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 495
+        width: 315
+        height: 450
+      alignment: 9
+      pivot: {x: 0.23174603, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c022c29014918642a7b5023f1bee86b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_90
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 17
+        width: 232
+        height: 450
+      alignment: 9
+      pivot: {x: 0.36206895, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b85c14d19ca03f478163e023347ef3e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_92
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 17
+        width: 158
+        height: 450
+      alignment: 9
+      pivot: {x: 0.56962025, y: 0.36222222}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef934ddede3142468b21eda9bdf5620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Joint Smoking_100
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 135
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8098da880acf545a2fc568906f9c05
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6d8b0e3fa553cb84d97d283054ae72cc
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

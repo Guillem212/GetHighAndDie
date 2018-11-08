@@ -39,15 +39,19 @@ public class playerMovement : MonoBehaviour {
 
 	private RaycastHit2D hit;
 
+	private Animator anim;
+
 
 	void Awake(){
 		rb = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 		velocity = Vector3.zero;
 	}
 
 	void FixedUpdate () {
 		//Da un valor entre movementSpeed y -movementSpeed por el tiempo.
 		horizontalMove = Input.GetAxis("Horizontal");
+		anim.SetFloat("HorizontalMove",Mathf.Abs(horizontalMove));
 
 		//Diferencia entre la situacion del muro y el movimiento normal.
 		if(Input.GetButton("GrapWall")){
@@ -55,20 +59,29 @@ public class playerMovement : MonoBehaviour {
 		}
 		else{
 			isOnWall = false;
+			anim.SetBool("isOnWall", false);
 		}
 		if(!isOnWall){
 			Movement();
 			jumpOnGround();
-		}
-	}
-	void Update(){
 
-		//Rota al jugador
-		if (horizontalMove < 0 && lookingRight){
-			Flip();
-		}
-		else if (horizontalMove > 0 && !lookingRight){
-			Flip();
+			//Animaciones
+			if(rb.velocity.y > 0){
+				anim.SetBool("goJump", false);
+				anim.SetBool("isJumping", true);
+			}
+			else if(rb.velocity.y <= 0){
+				anim.SetBool("isJumping", false);
+				anim.SetFloat("isFalling", rb.velocity.y);
+			}
+
+			//Rota al jugador
+			if (horizontalMove < 0 && lookingRight){
+				Flip();
+			}
+			else if (horizontalMove > 0 && !lookingRight){
+				Flip();
+			}
 		}
 	}
 
@@ -90,6 +103,14 @@ public class playerMovement : MonoBehaviour {
 		if (!detectGround()){
 			if(detectLefttWall()){
 				isOnWall = true;
+
+				//Animacion
+				anim.SetBool("isOnWall", true);
+
+				if (!lookingRight){
+					Flip();
+				}
+
 				wallVel = new Vector2(0, rb.velocity.y / 2);
 				rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
 
@@ -97,6 +118,14 @@ public class playerMovement : MonoBehaviour {
 			}
 			else if(detectRightWall()){
 				isOnWall = true;
+
+				//Animacion
+				anim.SetBool("isOnWall", true);
+
+				if (lookingRight){
+					Flip();
+				}
+
 				wallVel = new Vector2(0, rb.velocity.y / 2);
 				rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
 
@@ -108,6 +137,7 @@ public class playerMovement : MonoBehaviour {
 		}
 		else{
 			isOnWall =false;
+			anim.SetBool("isOnWall", false);
 		}
 	}
 
@@ -120,6 +150,10 @@ public class playerMovement : MonoBehaviour {
 	//---Salto Normal---\\
 	void jumpOnGround(){
 		if (Input.GetButtonDown("Jump") && detectGround()){
+
+			//Aniamcion
+			anim.SetBool("goJump", true);
+
 			//rb.velocity = Vector2.up * jumpVel;
 			rb.AddForce(Vector2.up * jumpVel*100);
 		}
@@ -137,12 +171,15 @@ public class playerMovement : MonoBehaviour {
 			isOnWall = false;
 			jumpWall.x *= direction;
 			rb.velocity = jumpWall * jumpVel;
+
+			anim.SetBool("isOnWall", false);
+			anim.SetBool("isJumping", true);
 		}
 	}
 
 	//---Detecta el Suelo---\\
 	bool detectGround(){
-		Debug.DrawRay(transform.position + offset, Vector2.down * 0.2f, Color.white);
+		//Debug.DrawRay(transform.position + offset, Vector2.down * 0.2f, Color.white);
 		hit = Physics2D.CircleCast(transform.position + offset, 0.2f, Vector2.down, 0.2f, groundLayer);
 		if (hit.collider != null) {
 			return true;
@@ -163,7 +200,7 @@ public class playerMovement : MonoBehaviour {
 	bool detectRightWall(){
 		hit = Physics2D.Raycast(transform.position, Vector2.right, 0.5f,  groundLayer);
 		if (hit.collider != null){
-			Debug.DrawRay(transform.position, Vector2.right * 0.5f, Color.green);
+			//Debug.DrawRay(transform.position, Vector2.right * 0.5f, Color.green);
 			return true;
 		}
 
@@ -172,7 +209,7 @@ public class playerMovement : MonoBehaviour {
 	bool detectLefttWall(){
 		hit = Physics2D.Raycast(transform.position, Vector2.left, 0.5f, groundLayer);
 		if (hit.collider != null){
-			Debug.DrawRay(transform.position, Vector2.left * 0.5f, Color.blue);
+			//Debug.DrawRay(transform.position, Vector2.left * 0.5f, Color.blue);
 			return true;
 		}
 

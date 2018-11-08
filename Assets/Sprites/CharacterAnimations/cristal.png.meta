@@ -1,0 +1,519 @@
+fileFormatVersion: 2
+guid: 44bb7389ea9186c4cb1f3740e1c63f1e
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: cristal_0
+    21300002: cristal_1
+    21300004: cristal_2
+    21300006: cristal_3
+    21300008: cristal_4
+    21300010: cristal_5
+    21300012: cristal_6
+    21300014: cristal_7
+    21300016: cristal_8
+    21300018: cristal_9
+    21300020: cristal_10
+    21300022: cristal_11
+    21300024: cristal_12
+    21300026: cristal_13
+    21300028: cristal_14
+    21300030: cristal_15
+    21300032: cristal_16
+    21300034: cristal_18
+    21300036: cristal_19
+    21300038: cristal_20
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 190
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cristal_0
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 1936
+        width: 136
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5514706, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48598607560a0640ac525b2dfab3b6e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_1
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1936
+        width: 150
+        height: 450
+      alignment: 9
+      pivot: {x: 0.40666667, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce3865a9f4f3214b8611cf4f185f889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_2
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 1936
+        width: 169
+        height: 450
+      alignment: 9
+      pivot: {x: 0.36094674, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c84990e578b734b4ebf14b98d6c0dd87
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_3
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1936
+        width: 122
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5081967, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3770eb8b812bf294aa14669fb0a880dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_4
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 1453
+        width: 169
+        height: 455
+      alignment: 9
+      pivot: {x: 0.35502958, y: 0.37142858}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab58679380d5fa14caf95e9832972e4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_5
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 1453
+        width: 150
+        height: 455
+      alignment: 9
+      pivot: {x: 0.40666667, y: 0.37142858}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c419e51a27a2c0a44bbb433855331613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_6
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 1453
+        width: 122
+        height: 455
+      alignment: 9
+      pivot: {x: 0.49999997, y: 0.37142858}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51219260b30a3a74fb5592a171965130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_7
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1453
+        width: 122
+        height: 455
+      alignment: 9
+      pivot: {x: 0.49999997, y: 0.37142858}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881a58ee09134a449851d1812bdfbfe4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_8
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 975
+        width: 136
+        height: 450
+      alignment: 9
+      pivot: {x: 0.44852942, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212db6897a606a64396672694632c1b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_9
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 975
+        width: 136
+        height: 408
+      alignment: 9
+      pivot: {x: 0.5514706, y: 0.4019608}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1797e9f283b2ef4a934bf5ad0258dee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_10
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 975
+        width: 136
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5514706, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7822936b792d043bc6d3a77848b55d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_11
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 975
+        width: 136
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5514706, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbc8b68e6c00ca947a3b35daea11f474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_12
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 492
+        width: 136
+        height: 455
+      alignment: 9
+      pivot: {x: 0.5514706, y: 0.37142858}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7927482acaf559b4a8457c6503256d67
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_13
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 492
+        width: 136
+        height: 455
+      alignment: 9
+      pivot: {x: 0.5514706, y: 0.37142858}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd05ac79a63249243afa1326f3ff7972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_14
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 492
+        width: 136
+        height: 455
+      alignment: 9
+      pivot: {x: 0.5514706, y: 0.37142858}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59cedd15b81d004eb6e78b6f91cd12c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_15
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 492
+        width: 164
+        height: 455
+      alignment: 9
+      pivot: {x: 0.3719512, y: 0.37142858}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d655292ffd7ea3445af9a0f49e408c99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_16
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 14
+        width: 199
+        height: 450
+      alignment: 9
+      pivot: {x: 0.30653265, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8989c4391a3fc4ab604dac5a56d703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_18
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 14
+        width: 231
+        height: 450
+      alignment: 9
+      pivot: {x: 0.26406926, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0896a6af5cf9e14382f88393f7f6870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_19
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 14
+        width: 261
+        height: 450
+      alignment: 9
+      pivot: {x: 0.28735632, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53955334617e86f419c94be6b9954928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cristal_20
+      rect:
+        serializedVersion: 2
+        x: 1606
+        y: 14
+        width: 272
+        height: 450
+      alignment: 9
+      pivot: {x: 0.2757353, y: 0.36444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8497ed4bcd912a14f8fb8f329ab3dabf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
