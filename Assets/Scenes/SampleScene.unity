@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 141778562}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,8 +141,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141778557}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.27, y: -0.528, z: 0}
+  m_LocalScale: {x: 2.3590393, y: 2.4288223, z: 1}
   m_Children: []
   m_Father: {fileID: 436383468}
   m_RootOrder: 0
@@ -252,7 +252,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141778557}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -260,7 +260,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 2.44
 --- !u!4 &237015267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4795031349647186, guid: bf6f0361ea9aac7449ba7f398394750c,
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 436383468}
   m_Layer: 0
   m_Name: EnemiesPool
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,6 +352,11 @@ PrefabInstance:
     - target: {fileID: 1225522325983740, guid: bf6f0361ea9aac7449ba7f398394750c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114330318100182174, guid: bf6f0361ea9aac7449ba7f398394750c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf6f0361ea9aac7449ba7f398394750c, type: 3}

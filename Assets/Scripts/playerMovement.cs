@@ -36,6 +36,7 @@ public class playerMovement : MonoBehaviour {
 	private float fallMultiplier = 7f;
 	private float lowerMultiplier = 2f;
 
+	private bool canPlay = true;
 
 	private RaycastHit2D hit;
 
@@ -48,40 +49,58 @@ public class playerMovement : MonoBehaviour {
 		velocity = Vector3.zero;
 	}
 
+	void Update(){
+		if(anim.GetBool("isSmoking") || anim.GetBool("isCocaine") || anim.GetBool("isCristal")){
+			canPlay = false;
+		}
+		else{
+			canPlay = true;
+		}
+	}
+
 	void FixedUpdate () {
 		//Da un valor entre movementSpeed y -movementSpeed por el tiempo.
 		horizontalMove = Input.GetAxis("Horizontal");
 		anim.SetFloat("HorizontalMove",Mathf.Abs(horizontalMove));
 
 		//Diferencia entre la situacion del muro y el movimiento normal.
-		if(Input.GetButton("GrapWall")){
-			onWall();
+		if(canPlay){
+			if(Input.GetButton("GrapWall")){
+				onWall();
+			}
+			else{
+				isOnWall = false;
+				anim.SetBool("isOnWall", false);
+			}
+			if(!isOnWall){
+				Movement();
+				jumpOnGround();
+
+				if(Input.GetButtonDown("Attack")){
+					attackPlayer();
+				}
+
+				//Animaciones
+				if(rb.velocity.y > 0){
+					anim.SetBool("goJump", false);
+					anim.SetBool("isJumping", true);
+				}
+				else if(rb.velocity.y <= 0){
+					anim.SetBool("isJumping", false);
+					anim.SetFloat("isFalling", rb.velocity.y);
+				}
+
+				//Rota al jugador
+				if (horizontalMove < 0 && lookingRight){
+					Flip();
+				}
+				else if (horizontalMove > 0 && !lookingRight){
+					Flip();
+				}
+			}
 		}
 		else{
-			isOnWall = false;
-			anim.SetBool("isOnWall", false);
-		}
-		if(!isOnWall){
-			Movement();
-			jumpOnGround();
-
-			//Animaciones
-			if(rb.velocity.y > 0){
-				anim.SetBool("goJump", false);
-				anim.SetBool("isJumping", true);
-			}
-			else if(rb.velocity.y <= 0){
-				anim.SetBool("isJumping", false);
-				anim.SetFloat("isFalling", rb.velocity.y);
-			}
-
-			//Rota al jugador
-			if (horizontalMove < 0 && lookingRight){
-				Flip();
-			}
-			else if (horizontalMove > 0 && !lookingRight){
-				Flip();
-			}
+			rb.velocity = Vector2.zero;
 		}
 	}
 
@@ -161,7 +180,8 @@ public class playerMovement : MonoBehaviour {
 				rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier -1) * Time.fixedDeltaTime; 
 		}
 		else if (rb.velocity.y > 0 && !Input.GetButton("Jump")){
-				rb.velocity += Vector2.up * Physics2D.gravity.y * (lowerMultiplier -1) * Time.fixedDeltaTime; 
+			anim.SetBool("isJumping", true);
+			rb.velocity += Vector2.up * Physics2D.gravity.y * (lowerMultiplier -1) * Time.fixedDeltaTime; 
 		}
 	}
 
@@ -188,10 +208,17 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	bool detectEnemiesHit(){
-		hit = Physics2D.Raycast(transform.position, Vector2.right);
-		Debug.DrawRay(transform.position, Vector2.left, Color.green);
-		if (hit.collider.tag == "Enemy"){
-			return true;
+		if(lookingRight){
+			hit = Physics2D.Raycast(transform.position, Vector2.right);
+			Debug.DrawRay(transform.position, Vector2.right, Color.green);
+		}
+		else{
+			hit = Physics2D.Raycast(transform.position, Vector2.left);
+			Debug.DrawRay(transform.position, Vector2.left, Color.green);
+		}
+		if (hit.collider != null){
+			if(hit.collider.tag == "Enemy")
+				return true;
 		}
 
 		return false;

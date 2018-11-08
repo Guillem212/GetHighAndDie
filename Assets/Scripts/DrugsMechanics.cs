@@ -51,57 +51,7 @@ public class DrugsMechanics : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
-        //Input de Guillem del Dash
-        //
-        dashInput = Input.GetAxis("Meth") != 0;
-        dashGuillem();
-        //
-        //Fin de los inputs
-
-        DashController();
-        if (methActive)
-        {
-            if (startDelay)
-            {
-                timePassed += Time.fixedDeltaTime;
-
-                if (timePassed <= delay)
-                {
-                    if (rightPress >= 2)
-                    {
-                        rb.velocity = new Vector2(speed, rb.velocity.y);
-                        rightPress = 0;
-                    }
-                    else if (leftPress >= 2)
-                    {
-                        rb.velocity = new Vector2(-speed, rb.velocity.y);
-                        leftPress = 0;
-                    }
-                    /*else if (upPress >= 2)
-                    {
-                        rb.velocity = new Vector2(rb.velocity.x, speed);
-                        leftPress = 0;
-                    }
-                    else if (downPress >= 2)
-                    {
-                        rb.velocity = new Vector2(rb.velocity.x, -speed);
-                        leftPress = 0;
-                    }*/
-                }
-                else
-                {
-                    timePassed = 0;
-                    startDelay = false;
-                    rightPress = 0;
-                    leftPress = 0;
-
-
-                }
-
-
-            }
-        }
-
+        
         if (Input.GetAxis("Cocaina") != 0 && !cocaineActive)
         {
 
@@ -130,11 +80,10 @@ public class DrugsMechanics : MonoBehaviour
 
 
         }
-        if (Input.GetKeyDown(KeyCode.R) && !methActive)
+        if (Input.GetAxis("Meth") != 0 && !methActive)
         {
             methActive = true;
-            /*StartCoroutine(StartMeth());
-            DashController();*/
+            StartCoroutine(MethAnim());
         }
 
         if (cocaineActive || hashActive || methActive || speedActive)
@@ -200,38 +149,25 @@ public class DrugsMechanics : MonoBehaviour
         StartCoroutine(StartHash());
     }
 
-    public IEnumerator StartMeth(float countdownValueM = 10)
+    public IEnumerator StartMeth()
     {
-        currCountdownValueMeth = countdownValueM;
-        while (currCountdownValueMeth > 0)
-        {
-         //HACER ANIMACION METH
-            yield return new WaitForSeconds(0.5f);
-            
-            currCountdownValueMeth--;
-
-        }
-      
+        dashMeth();
+        yield return new WaitForSeconds(1f);
         methActive = false;
     }
 
-    ///
-    //CODIGO ALTERNATIVO AL DASH
-    ///
-    void dashGuillem(){
-        if(!canDash){
-            dashCD -= Time.deltaTime;
-            if(dashCD < 0){
-                dashCD = 2f;
-                canDash = true;
-            }
-        }
+    public IEnumerator MethAnim(){
+        anim.SetBool("isCristal", true);
+        yield return new WaitForSeconds(.1f);
+        anim.SetBool("isCristal", false);
+    
+        StartCoroutine(StartMeth());
+    }
 
+    void dashMeth(){
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-        if(dashInput && canDash){
-            if(direction != Vector3.zero){
-                detectWallDash(direction);
-            }
+        if(direction != Vector3.zero){
+            detectWallDash(direction);
         }
     }
     
@@ -240,73 +176,7 @@ public class DrugsMechanics : MonoBehaviour
 		if (hit.collider == null){
             Vector3 offset = new Vector3(transform.position.x + 10f * dir.x, transform.position.y, transform.position.z);
             transform.position = offset;
-            canDash = false;
 		}
 	}
-    ///
-    //FIN DEL CODIGO ALTERNATIVO
-    ///
-
-    void DashController()
-    {
-        if ((Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") < 0))
-        {
-            leftPress++;
-            startTimer = true;
-        }
-        else if ((Input.GetButtonDown("Horizontal") && Input.GetAxisRaw("Horizontal") > 0))
-        {
-            rightPress++;
-            startTimer = true;
-
-        }
-        /*else if ((Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0))
-        {
-            upPress++;
-            startTimer = true;
-
-        }
-        else if ((Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") > 0))
-        {
-            downPress++;
-            startTimer = true;
-
-        }*/
-
-
-        if (startTimer)
-        {
-            timePassedPress += Time.deltaTime;
-            if (timePassedPress >= delayPress)
-            {
-                startTimer = false;
-                leftPress = 0;
-                rightPress = 0;
-                upPress = 0;
-                downPress = 0;
-                timePassedPress = 0;
-
-            }
-        }
-
-        if (leftPress >= 2 || rightPress >= 2)
-        {
-            startDelay = true;
-
-
-        }
-        if (upPress >= 2 || downPress >= 2)
-        {
-            startDelay = true;
-
-
-        }
-    }
-
-
-
-
-
-
 
 }
