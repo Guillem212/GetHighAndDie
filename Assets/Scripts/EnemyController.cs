@@ -7,21 +7,35 @@ public class EnemyController : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    public Transform playerPosition;
+    private Collider2D collider;
+
+    private Transform playerPosition;
 
     private Vector2 targetVelocity;
     private Vector3 velocity = new Vector3();
     private float smoothMove = .005f; //Hace más suave el movimiento.
 
-    private float movementSpeed = 200;
+    private float movementSpeed = 300;
 
-    float rnd;
+    public static bool isScared;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponentInParent<Rigidbody2D>();
+        collider = GetComponent<Collider2D>();
+        playerPosition = GameObject.FindWithTag("Player").transform;
+    }
+
+    void Update(){
+        if(isScared){
+            collider.enabled = true;
+        }
+        else{
+            collider.enabled = false;
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
 
     void OnTriggerStay2D(Collider2D other) {

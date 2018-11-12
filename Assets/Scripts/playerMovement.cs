@@ -54,6 +54,7 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	void Update(){
+		print(isOnWall);
 		
 		if(anim.GetBool("isSmoking") || anim.GetBool("isCocaine") || anim.GetBool("isCristal")){
 			canPlay = false;
@@ -69,8 +70,8 @@ public class playerMovement : MonoBehaviour {
 
 		if(!wannaJumpWall){
 			horizontalMove = Input.GetAxis("Horizontal");
+			anim.SetFloat("HorizontalMove", Mathf.Abs(horizontalMove));
 		}
-
 	}
 
 	void FixedUpdate () {
@@ -79,7 +80,7 @@ public class playerMovement : MonoBehaviour {
 		if(canPlay){
 			if(rb.velocity.x == 0){
 				onWall();
-				if(directionLook != 0 && stillJumping && isOnWall)
+				if(directionLook != 0 && canJump && isOnWall)
 					StartCoroutine(jumpOnWall(directionLook));
 			}
 			if(canMove && !isOnWall){
@@ -110,23 +111,39 @@ public class playerMovement : MonoBehaviour {
 	//---Movimiento Vertical---\\
 	void Movement() {
 		//Crea el vector de velocidad en y.
-		if(horizontalMove == 0){ targetVelocity = new Vector2(0, rb.velocity.y); }
+		if(horizontalMove == 0){ 
+			targetVelocity = new Vector2(0, rb.velocity.y);
+			anim.SetFloat("HorizontalMove", 0);
+		}
 		else{ targetVelocity = new Vector2(horizontalMove  * movementSpeed * Time.fixedDeltaTime, rb.velocity.y); }
-		
-		rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothMove);
 
+		rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothMove);
+	
 		if (horizontalMove < 0 && lookingRight){ Flip(); }
 		else if (horizontalMove > 0 && !lookingRight){ Flip(); }
 	}
 
 	void onWall(){
 		if(!detectGround()){
-			if( !isOnWall && detectWall() && directionLook == directionWall && horizontalMove != 0){
-				isOnWall = true;
-				wannaJumpWall = false;
+			if(detectWall()){
+				if(directionLook == directionWall && horizontalMove  == directionWall){
+					isOnWall = true;
 
-				wallVel = new Vector2(0, rb.velocity.y / 6);
-				rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
+					anim.SetBool("isOnWall", true);
+					anim.SetBool("isJumping", false);
+					anim.SetFloat("HorizontalMove", 0);
+					anim.SetFloat("isFalling", 0);
+
+					wannaJumpWall = false;
+
+					wallVel = new Vector2(directionLook, rb.velocity.y / 2);
+					rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
+				}
+				else{
+					isOnWall = false;
+					anim.SetBool("isOnWall", false);
+					anim.SetFloat("isFalling", rb.velocity.y);
+				}
 			}
 			else{
 				isOnWall = false;
@@ -134,6 +151,7 @@ public class playerMovement : MonoBehaviour {
 		}
 		else{
 			isOnWall = false;
+			anim.SetBool("isOnWall", false);
 		}
 
 	}
@@ -141,10 +159,15 @@ public class playerMovement : MonoBehaviour {
 	//---Salto en el Muro---\\
 	IEnumerator jumpOnWall(float direction){
 		wannaJumpWall = true;
+		isOnWall = false;
+
+		anim.SetBool("isOnWall", false);
+		anim.SetBool("isJumping", true);
+
 		horizontalMove = -direction;
 		jumpWall.x *= -direction;
 
-		rb.AddForce(jumpWall * jumpVel * 40);
+		rb.AddForce(jumpWall * jumpVel * 50);
 
 		yield return new WaitForSeconds(.4f);
 		wannaJumpWall = false;
@@ -153,6 +176,9 @@ public class playerMovement : MonoBehaviour {
 	//---Salto Normal---\\
 	void jumpOnGround(){
 		if (canJump && !isOnWall && detectGround()){
+
+			anim.SetBool("goJump", true);
+
 			rb.AddForce(Vector2.up * jumpVel * 100);
 		}
 		if (rb.velocity.y < 0){
@@ -160,6 +186,19 @@ public class playerMovement : MonoBehaviour {
 		}
 		else if (rb.velocity.y > 0 && !stillJumping){
 			rb.velocity += Vector2.up * Physics2D.gravity.y * (lowerMultiplier -1) * Time.fixedDeltaTime;
+		}
+
+		if(rb.velocity.y > 0){
+			anim.SetBool("goJump", false);
+			anim.SetBool("isJumping", true);
+		}
+		else if(rb.velocity.y < 0){
+			anim.SetBool("goJump", false);
+			anim.SetFloat("isFalling", rb.velocity.y);
+		}
+		else{
+			anim.SetFloat("isFalling", 0);
+			anim.SetBool("isJumping", false);
 		}
 	}
 
@@ -180,6 +219,7 @@ public class playerMovement : MonoBehaviour {
 			hit = Physics2D.Raycast(transform.position, Vector2.left, 1,  enemyLayer);
 		}
 		if (hit.collider != null){
+			EnemyController.isScared = true;
 			hit.collider.gameObject.SetActive(false);
 			return true;
 		}
