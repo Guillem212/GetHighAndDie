@@ -46,6 +46,8 @@ public class playerMovement : MonoBehaviour {
 
 	private bool canJump, canMove, canAttack, canWall, stillJumping, wannaJumpWall, isOnWall = false;
 
+	private bool flipped;
+
 	void Start(){
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
@@ -54,8 +56,6 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	void Update(){
-		print(isOnWall);
-		
 		if(anim.GetBool("isSmoking") || anim.GetBool("isCocaine") || anim.GetBool("isCristal")){
 			canPlay = false;
 		}
@@ -63,15 +63,14 @@ public class playerMovement : MonoBehaviour {
 			canPlay = true;
 		}
 
+		if(!wannaJumpWall){
+			horizontalMove = Input.GetAxis("Horizontal");
+		}
+
 		canJump = Input.GetButtonDown("Jump");
 		stillJumping = Input.GetButton("Jump");
 		canAttack = Input.GetButtonDown("Attack");
 		canMove = horizontalMove != 0;	
-
-		if(!wannaJumpWall){
-			horizontalMove = Input.GetAxis("Horizontal");
-			anim.SetFloat("HorizontalMove", Mathf.Abs(horizontalMove));
-		}
 	}
 
 	void FixedUpdate () {
@@ -95,6 +94,13 @@ public class playerMovement : MonoBehaviour {
 			if(canAttack){
 				attackPlayer();
 			}
+
+			if(!isOnWall && flipped){
+				flipped = false;
+				transform.Rotate(0f, 180f, 0f);
+			}
+
+			anim.SetFloat("HorizontalMove",Mathf.Abs(rb.velocity.x));
 			
 		}
 		else{
@@ -113,14 +119,15 @@ public class playerMovement : MonoBehaviour {
 		//Crea el vector de velocidad en y.
 		if(horizontalMove == 0){ 
 			targetVelocity = new Vector2(0, rb.velocity.y);
-			anim.SetFloat("HorizontalMove", 0);
 		}
-		else{ targetVelocity = new Vector2(horizontalMove  * movementSpeed * Time.fixedDeltaTime, rb.velocity.y); }
-
+		else{ 
+			targetVelocity = new Vector2(horizontalMove  * movementSpeed * Time.fixedDeltaTime, rb.velocity.y);
+			}
 		rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothMove);
-	
-		if (horizontalMove < 0 && lookingRight){ Flip(); }
-		else if (horizontalMove > 0 && !lookingRight){ Flip(); }
+		if(!isOnWall){
+			if (horizontalMove < 0 && lookingRight){ Flip(); }
+			else if (horizontalMove > 0 && !lookingRight){ Flip(); }
+		}
 	}
 
 	void onWall(){
@@ -135,6 +142,12 @@ public class playerMovement : MonoBehaviour {
 					anim.SetFloat("isFalling", 0);
 
 					wannaJumpWall = false;
+
+					if(!flipped){
+						flipped = true;
+						transform.Rotate(0f, 180f, 0f);
+						
+					}
 
 					wallVel = new Vector2(directionLook, rb.velocity.y / 2);
 					rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
@@ -163,6 +176,7 @@ public class playerMovement : MonoBehaviour {
 
 		anim.SetBool("isOnWall", false);
 		anim.SetBool("isJumping", true);
+		anim.SetFloat("HorizontalMove", 0);
 
 		horizontalMove = -direction;
 		jumpWall.x *= -direction;
@@ -178,6 +192,7 @@ public class playerMovement : MonoBehaviour {
 		if (canJump && !isOnWall && detectGround()){
 
 			anim.SetBool("goJump", true);
+			anim.SetFloat("HorizontalMove", 0);
 
 			rb.AddForce(Vector2.up * jumpVel * 100);
 		}
@@ -189,10 +204,12 @@ public class playerMovement : MonoBehaviour {
 		}
 
 		if(rb.velocity.y > 0){
+			anim.SetFloat("HorizontalMove", 0);
 			anim.SetBool("goJump", false);
 			anim.SetBool("isJumping", true);
 		}
 		else if(rb.velocity.y < 0){
+			anim.SetFloat("HorizontalMove", 0);
 			anim.SetBool("goJump", false);
 			anim.SetFloat("isFalling", rb.velocity.y);
 		}

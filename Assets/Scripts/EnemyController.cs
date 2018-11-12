@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
 
     private Rigidbody2D rb;
+    private Rigidbody2D rbPlayer;
 
     private Collider2D collider;
 
