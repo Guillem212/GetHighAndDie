@@ -62,7 +62,6 @@ GameObject:
   - component: {fileID: 50307222469397032}
   - component: {fileID: 237015263}
   - component: {fileID: 962387163}
-  - component: {fileID: 962387167}
   - component: {fileID: 992526508}
   m_Layer: 0
   m_Name: Player
@@ -150,6 +149,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   jumpVel: 10
 --- !u!50 &50307222469397032
 Rigidbody2D:
@@ -204,30 +206,6 @@ MonoBehaviour:
   ghostInstannce: {fileID: 3853626249025676819, guid: 12d421ccd0174c743bf3bfe79a10ca00,
     type: 3}
   makeGhost: 0
---- !u!114 &962387167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1225522325983740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecdad45540b7a8146af3703c489dd287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drugActive: 0
-  speedActive: 0
-  cocaineActive: 0
-  hashActive: 0
-  methActive: 0
-  speed: 7000
-  delay: 0.05
-  delayPress: 1
-  startDelay: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!95 &992526508
 Animator:
   serializedVersion: 3

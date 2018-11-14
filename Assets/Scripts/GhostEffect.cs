@@ -48,7 +48,7 @@ public class GhostEffect : MonoBehaviour
 
     void MakeGhost()
     {
-        if (((playerRB.velocity.x != 0 || playerRB.velocity.y != 0) && GetComponent<DrugsMechanics>().drugActive))
+        if (((playerRB.velocity.x != 0 || playerRB.velocity.y != 0) && GetComponent<DrugsMechanicsSergio>().drugActive))
             makeGhost = true;
         else
             makeGhost = false;

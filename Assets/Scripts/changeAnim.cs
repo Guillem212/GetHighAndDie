@@ -18,13 +18,13 @@ public class changeAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<DrugsMechanics>().methActive)
+        if (player.GetComponent<DrugsMechanicsSergio>().methActive)
             anim.SetBool("meth", true);
-        else if (player.GetComponent<DrugsMechanics>().hashActive)
+        else if (player.GetComponent<DrugsMechanicsSergio>().hashActive)
             anim.SetBool("hash", true);
-        else if (player.GetComponent<DrugsMechanics>().cocaineActive)
+        else if (player.GetComponent<DrugsMechanicsSergio>().cocaineActive)
             anim.SetBool("cocaine", true);
-        else if (player.GetComponent<DrugsMechanics>().speedActive)
+        else if (player.GetComponent<DrugsMechanicsSergio>().speedActive)
             anim.SetBool("speed", true);
 
 
