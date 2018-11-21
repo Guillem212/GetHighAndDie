@@ -6,21 +6,35 @@ public class DrugsMechanicsSergio : MonoBehaviour
 {
     public bool drugActive;
     private float speedDrug, speedNormal, cocaineJump, jumpNormal;
-    private float currCountdownValueSpeed, currCountdownValueHash, currCountdownValueCocaine, currCountdownValueMeth;
+    public float methDelay = 1f;
     public bool speedActive, cocaineActive, hashActive, methActive;
 
     private Animator anim;
     public float timeDrugActive = 5f;
-    [SerializeField] private GameObject canvas;
+    [SerializeField]
+    private GameObject canvas;
+    [SerializeField]
+    private GameObject panelColorDrugs;
 
-    [SerializeField] private float restAmount = 0.125f;
+
+    [SerializeField]
+    private float restAmount = 0.125f;
     private bool restLife;
+
+    [SerializeField]
+    private Camera mainCamera;
+    public bool makeRipple = false;
+    public bool changeColorPanelCocaine = false;
+    public bool changeColorPanelHash = false;
+    public bool changeColorPanelMeth = false;
+    public bool changeColorPanelSpeed = false;
 
     //DASH VARAIABLES
     [SerializeField]
     float speed, delay = 0.05f, delayPress;
     [HideInInspector]
-    [SerializeField]private bool startDelay;
+    [SerializeField]
+    private bool startDelay;
     private Rigidbody2D rb;
     private int rightPress, leftPress, upPress, downPress;
     private float timePassed, timePassedPress;
@@ -31,7 +45,8 @@ public class DrugsMechanicsSergio : MonoBehaviour
     private float dashCD = 2f;
     private bool dashInput;
     private RaycastHit2D hit;
-    [SerializeField]private LayerMask groundLayer;
+    [SerializeField]
+    private LayerMask groundLayer;
     Vector3 direction = Vector3.zero;
 
     void Start()
@@ -50,9 +65,44 @@ public class DrugsMechanicsSergio : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-     // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
+        if (makeRipple)
+        {
+            mainCamera.GetComponent<RipplePostProcessor>().MakeRipple();
+
+        }
+
+        if (changeColorPanelCocaine)
+        {
+            panelColorDrugs.GetComponent<ChangeColorPanel>().ChangeColorCocaine();
+
+        }
+
+        else if (changeColorPanelSpeed)
+        {
+            panelColorDrugs.GetComponent<ChangeColorPanel>().ChangeColorSpeed();
+
+        }
+
+
+        else if (changeColorPanelMeth)
+        {
+            panelColorDrugs.GetComponent<ChangeColorPanel>().ChangeColorMeth();
+
+        }
+
+
+        else if (changeColorPanelHash)
+        {
+            panelColorDrugs.GetComponent<ChangeColorPanel>().ChangeColorHash();
+
+        }
+        else
+            panelColorDrugs.GetComponent<ChangeColorPanel>().SetActivePanelFalse();
+
+
         if (Input.GetAxis("Cocaina") != 0 && !cocaineActive)
         {
             cocaineActive = true;
@@ -60,7 +110,7 @@ public class DrugsMechanicsSergio : MonoBehaviour
             restLife = true;
             canvas.GetComponent<PlayerManager>().RestAmount(restAmount);
         }
-  
+
         if (Input.GetAxis("Hash") != 0 && !hashActive)
         {
 
@@ -71,7 +121,7 @@ public class DrugsMechanicsSergio : MonoBehaviour
         }
 
         if (Input.GetAxis("Speed") != 0 && !speedActive)
-        {        
+        {
             speedActive = true;
             StartCoroutine(speedAnim());
             restLife = true;
@@ -91,7 +141,7 @@ public class DrugsMechanicsSergio : MonoBehaviour
 
         else
         {
-            drugActive = false;            
+            drugActive = false;
         }
 
         if (restLife)
@@ -103,7 +153,7 @@ public class DrugsMechanicsSergio : MonoBehaviour
         }
 
     }
-    
+
     public IEnumerator StartSpeed()
     {
         GetComponent<playerMovement>().movementSpeed = speedDrug;
@@ -112,11 +162,16 @@ public class DrugsMechanicsSergio : MonoBehaviour
         GetComponent<playerMovement>().movementSpeed = speedNormal;
     }
 
-    public IEnumerator speedAnim(){
+    public IEnumerator speedAnim()
+    {
         anim.SetBool("isCristal", true);
+        makeRipple = !makeRipple;
+        changeColorPanelSpeed = !changeColorPanelSpeed;
         yield return new WaitForSeconds(1.06f);
+        makeRipple = !makeRipple;
+        changeColorPanelSpeed = !changeColorPanelSpeed;
         anim.SetBool("isCristal", false);
-        
+
         StartCoroutine(StartSpeed());
     }
 
@@ -128,11 +183,16 @@ public class DrugsMechanicsSergio : MonoBehaviour
         cocaineActive = false;
     }
 
-    public IEnumerator cocaineAnim(){
+    public IEnumerator cocaineAnim()
+    {
         anim.SetBool("isCocaine", true);
+        makeRipple = !makeRipple;
+        changeColorPanelCocaine = !changeColorPanelCocaine;
         yield return new WaitForSeconds(1f);
         anim.SetBool("isCocaine", false);
-    
+        makeRipple = !makeRipple;
+        changeColorPanelCocaine = !changeColorPanelCocaine;
+
         StartCoroutine(StartCocaine());
     }
 
@@ -141,46 +201,67 @@ public class DrugsMechanicsSergio : MonoBehaviour
         //RALENTIZAR LA VELOCIDAD DE LOS OBJETOS EXCEPTO LA DEL JUGADOR
         yield return new WaitForSeconds(timeDrugActive);
         //NORMALIZAR LA VELOCIDAD LOS OBJETOS 
-        
+
         hashActive = false;
     }
 
-    public IEnumerator hashAnim(){
+    public IEnumerator hashAnim()
+    {
         anim.SetBool("isSmoking", true);
+        makeRipple = !makeRipple;
+        changeColorPanelHash = !changeColorPanelHash;
         yield return new WaitForSeconds(2.6f);
+        makeRipple = !makeRipple;
+        changeColorPanelHash = !changeColorPanelHash;
         anim.SetBool("isSmoking", false);
-    
+
         StartCoroutine(StartHash());
     }
 
     public IEnumerator StartMeth()
     {
         dashMeth();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(methDelay);
         methActive = false;
     }
 
-    public IEnumerator MethAnim(){
+    public IEnumerator MethAnim()
+    {
         anim.SetBool("isCristal", true);
+        makeRipple = !makeRipple;
+        changeColorPanelMeth = !changeColorPanelMeth;
         yield return new WaitForSeconds(.1f);
+        makeRipple = !makeRipple;
+        changeColorPanelMeth = !changeColorPanelMeth;
         anim.SetBool("isCristal", false);
-    
         StartCoroutine(StartMeth());
     }
 
-    void dashMeth(){
+    void dashMeth()
+    {
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
-        if(direction != Vector3.zero){
+        if (direction != Vector3.zero)
+        {
             detectWallDash(direction);
         }
     }
-    
-    void detectWallDash(Vector3 dir){
-		hit = Physics2D.Raycast(transform.position + dir * 10f, dir, 0.01f, groundLayer);
-		if (hit.collider == null){
+
+    void detectWallDash(Vector3 dir)
+    {
+        hit = Physics2D.Raycast(transform.position + dir * 10f, dir, 0.01f, groundLayer);
+        if (hit.collider == null)
+        {
             Vector3 offset = new Vector3(transform.position.x + 10f * dir.x, transform.position.y, transform.position.z);
             transform.position = offset;
-		}
-	}
+        }
+    }
+
+    /*public IEnumerator makeRippleeffect()
+    {
+        yield return new WaitForSeconds(0.2f);
+        makeRipple = !makeRipple;
+
+
+    }*/
 
 }
