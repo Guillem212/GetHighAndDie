@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 237015263}
   - component: {fileID: 962387163}
   - component: {fileID: 992526508}
+  - component: {fileID: 1659380753}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -169,7 +170,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d08903324ce7a484eb97dc20ed6c2306, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
@@ -225,3 +226,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1659380753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225522325983740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db6d2f0205c31f4f8600cf6cde8989a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drugActive: 0
+  speedActive: 0
+  cocaineActive: 0
+  hashActive: 0
+  methActive: 0
+  timeDrugActive: 5
+  canvas: {fileID: 0}
+  restAmount: 0.125
+  speed: 0
+  delay: 0.05
+  delayPress: 0
+  startDelay: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
