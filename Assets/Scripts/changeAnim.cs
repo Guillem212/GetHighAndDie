@@ -6,7 +6,7 @@ public class changeAnim : MonoBehaviour
 {
 
     private GameObject player;
-    Animator anim;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +18,13 @@ public class changeAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<DrugsMechanicsSergio>().methActive)
+        if (player.GetComponent<DrugsMechanics>().methActive)
             anim.SetBool("meth", true);
-        else if (player.GetComponent<DrugsMechanicsSergio>().hashActive)
+        else if (player.GetComponent<DrugsMechanics>().hashActive)
             anim.SetBool("hash", true);
-        else if (player.GetComponent<DrugsMechanicsSergio>().cocaineActive)
+        else if (player.GetComponent<DrugsMechanics>().cocaineActive)
             anim.SetBool("cocaine", true);
-        else if (player.GetComponent<DrugsMechanicsSergio>().speedActive)
+        else if (player.GetComponent<DrugsMechanics>().speedActive)
             anim.SetBool("speed", true);
 
 

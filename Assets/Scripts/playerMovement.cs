@@ -9,21 +9,21 @@ public class playerMovement : MonoBehaviour {
 	muy bajo. */
 
 	[Range(400, 800)]
-	public float  movementSpeed; //Determina la velocidad de movimiento.
+	[SerializeField] private float  movementSpeed; //Determina la velocidad de movimiento.
 
 	private float smoothMove = .005f; //Hace más suave el movimiento.
 	private Vector3 velocity = new Vector3();
 	Vector3 targetVelocity;
 
 	private float horizontalMove;
-	public static bool lookingRight = true;
+	[SerializeField] private static bool lookingRight = true;
 	private int directionWall, directionLook;
 
 	private Rigidbody2D rb;
 
 
-	public LayerMask groundLayer; //Detecta el layerMask del suelo.
-	public LayerMask enemyLayer;
+	[SerializeField] private LayerMask groundLayer; //Detecta el layerMask del suelo.
+    [SerializeField] private LayerMask enemyLayer;
 
 	private Vector3 wallVel; //Determina la velocidad de movimiento en el muro.
 	private Vector2 jumpWall = new Vector2(1f, 2f); //Determina el angulo de salto.
@@ -31,8 +31,7 @@ public class playerMovement : MonoBehaviour {
 	private Vector3 offset = new Vector3(0f, -1f, 0f);
 
 	[Range(10, 20)]
-	public float jumpVel;
-
+    [SerializeField] private float jumpVel;
 
 	private float fallMultiplier = 7f;
 	private float lowerMultiplier = 2f;
@@ -43,10 +42,10 @@ public class playerMovement : MonoBehaviour {
 
 	private Animator anim;
 
-
 	private bool canJump, canMove, canAttack, canWall, stillJumping, wannaJumpWall, isOnWall = false;
 
 	private bool flipped;
+
 
 	void Start(){
 		rb = GetComponent<Rigidbody2D>();
@@ -70,8 +69,11 @@ public class playerMovement : MonoBehaviour {
 		canJump = Input.GetButtonDown("Jump");
 		stillJumping = Input.GetButton("Jump");
 		canAttack = Input.GetButtonDown("Attack");
-		canMove = horizontalMove != 0;	
-	}
+		canMove = horizontalMove != 0;
+
+        if (!isOnWall)
+            jumpOnGround();
+    }
 
 	void FixedUpdate () {
 		//Da un valor entre movementSpeed y -movementSpeed por el tiempo.
@@ -88,9 +90,7 @@ public class playerMovement : MonoBehaviour {
 			else{
 				rb.velocity = new Vector2(0, rb.velocity.y);
 			}
-			if(!isOnWall)
-				jumpOnGround();
-
+		
 			if(canAttack){
 				attackPlayer();
 			}
@@ -191,8 +191,8 @@ public class playerMovement : MonoBehaviour {
 	void jumpOnGround(){
 		if (canJump && !isOnWall && detectGround()){
 
-			anim.SetBool("goJump", true);
-			anim.SetFloat("HorizontalMove", 0);
+            anim.SetBool("goJump", true);
+            anim.SetFloat("HorizontalMove", 0);
 
 			rb.AddForce(Vector2.up * jumpVel * 100);
 		}
@@ -205,13 +205,14 @@ public class playerMovement : MonoBehaviour {
 
 		if(rb.velocity.y > 0){
 			anim.SetFloat("HorizontalMove", 0);
-			anim.SetBool("goJump", false);
-			anim.SetBool("isJumping", true);
+            anim.SetBool("goJump", false);
+            anim.SetBool("isJumping", true);
 		}
 		else if(rb.velocity.y < 0){
 			anim.SetFloat("HorizontalMove", 0);
-			anim.SetBool("goJump", false);
-			anim.SetFloat("isFalling", rb.velocity.y);
+            anim.SetBool("goJump", false);
+            
+            anim.SetFloat("isFalling", rb.velocity.y);
 		}
 		else{
 			anim.SetFloat("isFalling", 0);
@@ -265,4 +266,24 @@ public class playerMovement : MonoBehaviour {
 		directionLook = -directionLook;
 		transform.Rotate(0f, 180f, 0f);
 	}
+
+    public float GetMovementSpeed()
+    {
+        return this.movementSpeed;
+    }
+
+    public void SetMovementSpeed(float movementSpeed)
+    {
+        this.movementSpeed = movementSpeed;
+    }
+
+    public float GetJumpVel()
+    {
+        return this.jumpVel;
+    }
+
+    public void SetJumpVel(float jumpVel)
+    {
+        this.jumpVel = jumpVel;
+    }
 }

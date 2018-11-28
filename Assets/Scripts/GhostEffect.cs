@@ -5,10 +5,12 @@ using UnityEngine;
 public class GhostEffect : MonoBehaviour
 {
 
-    public float ghostDelay;
+    [SerializeField]
+    private float ghostDelay;
     private float ghostDelaySeconds;
-    public GameObject ghostInstannce;
-    public bool makeGhost;
+    [SerializeField]
+    private GameObject ghostInstannce;
+    private bool makeGhost;
     private Rigidbody2D playerRB;
     
 
@@ -48,7 +50,7 @@ public class GhostEffect : MonoBehaviour
 
     void MakeGhost()
     {
-        if (((playerRB.velocity.x != 0 || playerRB.velocity.y != 0) && GetComponent<DrugsMechanicsSergio>().drugActive))
+        if (((playerRB.velocity.x != 0 || playerRB.velocity.y != 0) && GetComponent<DrugsMechanics>().drugActive))
             makeGhost = true;
         else
             makeGhost = false;
