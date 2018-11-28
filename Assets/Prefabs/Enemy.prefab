@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7199103583990983037}
   m_Layer: 2
   m_Name: EnemyTriggerArea
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,6 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b216d3900520e3e4498295f9ac451471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  anim: {fileID: 0}
+  enemyPos: {fileID: 0}
 --- !u!1 &7199103584454985746
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,6 +75,7 @@ GameObject:
   - component: {fileID: 7199103584454985966}
   - component: {fileID: 7199103584454985967}
   - component: {fileID: 3094045175852825614}
+  - component: {fileID: 921914164}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -88,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 7199103584454985746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.905, y: -0.23, z: 0}
-  m_LocalScale: {x: 0.8663476, y: 2.9530904, z: 0.502196}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 7199103583990983038}
   m_Father: {fileID: 0}
@@ -131,8 +135,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d4f7aaf6dba716541bb2135650029635, type: 3}
-  m_Color: {r: 0.19744569, g: 0.8207547, b: 0.22496827, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 334446afd25469847a86044f7d03feb5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -177,5 +181,24 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.06, y: 2.44}
   m_Direction: 0
+--- !u!95 &921914164
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199103584454985746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac9d7d382a0ecc143859e73598eb3e15, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
