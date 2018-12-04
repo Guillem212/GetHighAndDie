@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Rigidbody2D rbPlayer;
 
     private Collider2D collider;
-    private Collider2D colliderEnem;
+    //public Collider2D colliderEnem;
 
     private Transform playerPosition;
 
@@ -20,6 +20,8 @@ public class EnemyController : MonoBehaviour
     private float movementSpeed = 300;
 
     public static bool isScared;
+    private bool isDead = false;
+    private bool alreadyDead = false;
 
     private Animator anim;
     private SpriteRenderer enemyPos;
@@ -31,7 +33,7 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
-        colliderEnem = GetComponentInParent<Collider2D>();
+        //colliderEnem = GetComponentInParent<Collider2D>();
         playerPosition = GameObject.FindWithTag("Player").transform;
 
         anim = GetComponentInParent<Animator>();
@@ -39,15 +41,36 @@ public class EnemyController : MonoBehaviour
     }
 
     void Update(){
-        if(isScared){
-            collider.enabled = true;
-            anim.SetBool("isScared", true);
+        if(!isDead){
+            if(isScared){
+                collider.enabled = true;
+                anim.SetBool("isScared", true);
+            }
+            else{
+                anim.SetBool("isScared", false);
+                collider.enabled = false;
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
         }
-        else{
-            anim.SetBool("isScared", false);
-            collider.enabled = false;
-            rb.velocity = new Vector2(0, rb.velocity.y);
+        else if(!alreadyDead){
+            StartCoroutine(deadAnim());
+            alreadyDead = true;
         }
+    }
+
+    IEnumerator deadAnim(){
+        anim.SetBool("isDead", true);
+        yield return new WaitForSeconds(0.1f);
+        rb.bodyType = RigidbodyType2D.Static;
+        collider.enabled = false;
+        gameObject.GetComponentInParent<GameObject>().SetActive(false);
+        //colliderEnem.enabled = false;
+
+
+    }
+    
+    public void dieEnemy(){
+        isDead = true;
     }
 
     void OnTriggerStay2D(Collider2D other) {

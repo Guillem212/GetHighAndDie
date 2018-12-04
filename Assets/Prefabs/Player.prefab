@@ -237,22 +237,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db6d2f0205c31f4f8600cf6cde8989a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drugActive: 0
   methDelay: 1
-  speedActive: 0
-  cocaineActive: 0
-  hashActive: 0
-  methActive: 0
-  timeDrugActive: 5
   canvas: {fileID: 0}
   panelColorDrugs: {fileID: 0}
-  restAmount: 0.125
+  restAmountCocaine: 0.125
+  restAmountHash: 0.125
+  restAmountSpeed: 0.125
+  restAmountMeth: 0.125
   mainCamera: {fileID: 0}
-  makeRipple: 0
-  changeColorPanelCocaine: 0
-  changeColorPanelHash: 0
-  changeColorPanelMeth: 0
-  changeColorPanelSpeed: 0
   speed: 0
   delay: 0.05
   delayPress: 0

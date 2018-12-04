@@ -120,7 +120,6 @@ public class playerMovement : MonoBehaviour {
 		if (detectEnemiesHit() && detectGround()){
 			animAttack = true;
 			FindObjectOfType<AudioManager>().Play("PlayerAttack");
-			//Ejecutar Animación de matar
 		}
 		else{
 			animAttack = false;
@@ -224,7 +223,9 @@ public class playerMovement : MonoBehaviour {
 		}
 		if (hit.collider != null){
 			EnemyController.isScared = true;
-			//hit.collider.gameObject.SetActive(false);
+			GameObject enemyHit = hit.collider.gameObject;
+			enemyHit.GetComponentInChildren<EnemyController>().dieEnemy();
+			enemyHit = null;
 			return true;
 		}
 		return false;
