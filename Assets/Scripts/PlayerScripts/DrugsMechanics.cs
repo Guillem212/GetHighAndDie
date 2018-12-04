@@ -155,6 +155,7 @@ public class DrugsMechanics : MonoBehaviour
 
     public IEnumerator StartSpeed()
     {
+        FindObjectOfType<AudioManager>().Play("PlayerSpeed");
         GetComponent<playerMovement>().SetMovementSpeed(speedDrug);
         yield return new WaitForSeconds(timeDrugActive);
         speedActive = false;
@@ -176,6 +177,7 @@ public class DrugsMechanics : MonoBehaviour
 
     public IEnumerator StartCocaine()
     {
+        FindObjectOfType<AudioManager>().Play("PlayerCocaine");
         GetComponent<playerMovement>().SetJumpVel(cocaineJump);
         yield return new WaitForSeconds(timeDrugActive);
         GetComponent<playerMovement>().SetJumpVel(jumpNormal);
@@ -219,6 +221,7 @@ public class DrugsMechanics : MonoBehaviour
 
     public IEnumerator StartMeth()
     {
+        FindObjectOfType<AudioManager>().Play("PlayerTeleport");
         dashMeth();
         yield return new WaitForSeconds(methDelay);
         methActive = false;

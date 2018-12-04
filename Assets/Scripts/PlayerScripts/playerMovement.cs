@@ -119,6 +119,7 @@ public class playerMovement : MonoBehaviour {
 	void attackPlayer(){
 		if (detectEnemiesHit() && detectGround()){
 			animAttack = true;
+			FindObjectOfType<AudioManager>().Play("PlayerAttack");
 			//Ejecutar Animación de matar
 		}
 		else{
@@ -173,6 +174,7 @@ public class playerMovement : MonoBehaviour {
 
 	//---Salto en el Muro---\\
 	IEnumerator jumpOnWall(float direction){
+		FindObjectOfType<AudioManager>().Play("PlayerJumpOnWall");
 		animJumping = true;
 		wannaJumpWall = true;
 		isOnWall = false;
@@ -189,6 +191,7 @@ public class playerMovement : MonoBehaviour {
 	//---Salto Normal---\\
 	void jumpOnGround(){
 		if (canJump && !isOnWall && detectGround()){
+			FindObjectOfType<AudioManager>().Play("PlayerJumpOnGround");
 			animGoJump = true;
 			rb.AddForce(Vector2.up * jumpVel * 100);
 		}
