@@ -206,7 +206,6 @@ MonoBehaviour:
   ghostDelay: 0.05
   ghostInstannce: {fileID: 3853626249025676819, guid: 12d421ccd0174c743bf3bfe79a10ca00,
     type: 3}
-  makeGhost: 0
 --- !u!95 &992526508
 Animator:
   serializedVersion: 3

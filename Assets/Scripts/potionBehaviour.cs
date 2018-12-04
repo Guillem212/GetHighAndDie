@@ -21,7 +21,7 @@ public class potionBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (potionTouched && Input.GetKeyDown(KeyCode.P))
+        if (potionTouched)
         {
             playerManager.GetComponent<PlayerManager>().AddAmount(lifeToAdd); 
             potionCatched = true;

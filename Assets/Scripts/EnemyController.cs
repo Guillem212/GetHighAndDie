@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     private Rigidbody2D rbPlayer;
 
     private Collider2D collider;
+    private Collider2D colliderEnem;
 
     private Transform playerPosition;
 
@@ -20,8 +21,8 @@ public class EnemyController : MonoBehaviour
 
     public static bool isScared;
 
-    public Animator anim;
-    public SpriteRenderer enemyPos;
+    private Animator anim;
+    private SpriteRenderer enemyPos;
     private bool lookingRight = true;
 
 
@@ -30,6 +31,7 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+        colliderEnem = GetComponentInParent<Collider2D>();
         playerPosition = GameObject.FindWithTag("Player").transform;
 
         anim = GetComponentInParent<Animator>();
