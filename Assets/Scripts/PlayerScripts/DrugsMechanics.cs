@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DrugsMechanics : MonoBehaviour
 {
-    public bool drugActive;
+    private bool drugActive;
     private float speedDrug, speedNormal, cocaineJump, jumpNormal;
-    public float methDelay = 1f;
-    public bool speedActive, cocaineActive, hashActive, methActive;
+    [SerializeField] private float methDelay = 1f;
+    private bool speedActive, cocaineActive, hashActive, methActive;
 
     private Animator anim;
-    public float timeDrugActive = 5f;
+    private float timeDrugActive = 5f;
     [SerializeField]
     private GameObject canvas;
     [SerializeField]
@@ -18,16 +18,17 @@ public class DrugsMechanics : MonoBehaviour
 
 
     [SerializeField]
+    private float restAmountCocaine = 0.125f, restAmountHash = 0.125f, restAmountSpeed = 0.125f, restAmountMeth = 0.125f;
     private float restAmount = 0.125f;
     private bool restLife;
 
     [SerializeField]
     private Camera mainCamera;
-    public bool makeRipple = false;
-    public bool changeColorPanelCocaine = false;
-    public bool changeColorPanelHash = false;
-    public bool changeColorPanelMeth = false;
-    public bool changeColorPanelSpeed = false;
+    private bool makeRipple = false;
+    private bool changeColorPanelCocaine = false;
+    private bool changeColorPanelHash = false;
+    private bool changeColorPanelMeth = false;
+    private bool changeColorPanelSpeed = false;
 
     //DASH VARAIABLES
     [SerializeField]
@@ -107,7 +108,7 @@ public class DrugsMechanics : MonoBehaviour
             cocaineActive = true;
             StartCoroutine(cocaineAnim());
             restLife = true;
-            canvas.GetComponent<PlayerManager>().RestAmount(restAmount);
+            canvas.GetComponent<PlayerManager>().RestAmount(restAmountCocaine);
         }
 
         if (Input.GetAxis("Hash") != 0 && !hashActive)
@@ -116,7 +117,7 @@ public class DrugsMechanics : MonoBehaviour
             hashActive = true;
             StartCoroutine(hashAnim());
             restLife = true;
-            canvas.GetComponent<PlayerManager>().RestAmount(restAmount);
+            canvas.GetComponent<PlayerManager>().RestAmount(restAmountHash);
         }
 
         if (Input.GetAxis("Speed") != 0 && !speedActive)
@@ -124,7 +125,7 @@ public class DrugsMechanics : MonoBehaviour
             speedActive = true;
             StartCoroutine(speedAnim());
             restLife = true;
-            canvas.GetComponent<PlayerManager>().RestAmount(restAmount);
+            canvas.GetComponent<PlayerManager>().RestAmount(restAmountSpeed);
         }
 
         if (Input.GetAxis("Meth") != 0 && !methActive)
@@ -132,7 +133,7 @@ public class DrugsMechanics : MonoBehaviour
             methActive = true;
             StartCoroutine(MethAnim());
             restLife = true;
-            canvas.GetComponent<PlayerManager>().RestAmount(restAmount);
+            canvas.GetComponent<PlayerManager>().RestAmount(restAmountMeth);
         }
 
         if (cocaineActive || hashActive || methActive || speedActive)
@@ -155,7 +156,6 @@ public class DrugsMechanics : MonoBehaviour
 
     public IEnumerator StartSpeed()
     {
-        FindObjectOfType<AudioManager>().Play("PlayerSpeed");
         GetComponent<playerMovement>().SetMovementSpeed(speedDrug);
         yield return new WaitForSeconds(timeDrugActive);
         speedActive = false;
@@ -177,7 +177,6 @@ public class DrugsMechanics : MonoBehaviour
 
     public IEnumerator StartCocaine()
     {
-        FindObjectOfType<AudioManager>().Play("PlayerCocaine");
         GetComponent<playerMovement>().SetJumpVel(cocaineJump);
         yield return new WaitForSeconds(timeDrugActive);
         GetComponent<playerMovement>().SetJumpVel(jumpNormal);
@@ -221,7 +220,6 @@ public class DrugsMechanics : MonoBehaviour
 
     public IEnumerator StartMeth()
     {
-        FindObjectOfType<AudioManager>().Play("PlayerTeleport");
         dashMeth();
         yield return new WaitForSeconds(methDelay);
         methActive = false;
@@ -258,12 +256,35 @@ public class DrugsMechanics : MonoBehaviour
         }
     }
 
-    /*public IEnumerator makeRippleeffect()
+
+    public bool GetDrugActive()
     {
-        yield return new WaitForSeconds(0.2f);
-        makeRipple = !makeRipple;
+        return drugActive;
+    }
 
+    public bool GetMethActive()
+    {
+        return methActive;
+    }
 
-    }*/
+    public bool GetCocaineActive()
+    {
+        return cocaineActive;
+    }
+
+    public bool GetHashActive()
+    {
+        return hashActive;
+    }
+
+    public bool GetSpeedActive()
+    {
+        return speedActive;
+    }
+
+    public float GetTimeDrugActive()
+    {
+        return timeDrugActive;
+    }
 
 }
