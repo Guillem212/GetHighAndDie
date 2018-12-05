@@ -49,11 +49,22 @@ public class playerMovement : MonoBehaviour {
 
 
 	void Start(){
-		rb = GetComponent<Rigidbody2D>();
-		anim = GetComponent<Animator>();
-		velocity = Vector3.zero;
-		directionLook = 1;
-	}
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        velocity = Vector3.zero;
+        directionLook = 1;
+        isOnWall = false;
+        animGoJump = false;
+        animJumping = false;
+        animAttack = false;
+        smoothMove = .005f;
+        velocity = new Vector3();
+        jumpWall = new Vector2(1f, 2f);
+        new Vector3(0f, -1f, 0f);
+        fallMultiplier = 7f;
+        lowerMultiplier = 2f;
+        lookingRight = true;
+    }
 
 	void Update(){
 		if(anim.GetBool("isSmoking") || anim.GetBool("isCocaine") || anim.GetBool("isCristal")){

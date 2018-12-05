@@ -159,7 +159,7 @@ public class DrugsMechanics : MonoBehaviour
         GetComponent<playerMovement>().SetMovementSpeed(speedDrug);
         yield return new WaitForSeconds(timeDrugActive);
         speedActive = false;
-        GetComponent<playerMovement>().SetMovementSpeed(speedDrug);
+        GetComponent<playerMovement>().SetMovementSpeed(speedNormal);
     }
 
     public IEnumerator speedAnim()

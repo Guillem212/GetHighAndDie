@@ -149,7 +149,12 @@ public class PlayerManager : MonoBehaviour
             anim.SetBool("Blink_Destroyed", true);
         else
             anim.SetBool("Blink_Destroyed", false);
-       
+
+        if (LifeBar.fillAmount <= 0f)
+        {
+            RestLifeGameManager();
+        }
+
 
     }
 
@@ -301,6 +306,12 @@ public class PlayerManager : MonoBehaviour
     public float GetAmount()
     {
         return amount;
+    }
+
+    public void RestLifeGameManager()
+    {
+        GameManager.playerLife--;
+
     }
 
 
