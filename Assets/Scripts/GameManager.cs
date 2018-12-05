@@ -34,6 +34,6 @@ public class GameManager : MonoBehaviour
     }
 
     void Restart(){
-        SceneManager.LoadScene(Application.loadedLevel, LoadSceneMode.Single);
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
