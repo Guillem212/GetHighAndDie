@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseBehaviour : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class PauseBehaviour : MonoBehaviour
     {
    
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetButtonDown("Escape"))
         {       
                 PauseGame();
           
@@ -114,22 +115,22 @@ public class PauseBehaviour : MonoBehaviour
 
     void SelectAnOption()
     {
-        if (ExitImage.GetComponent<Animator>().GetBool("isSelected"))
+        if (ExitImage.GetComponent<Animator>().GetBool("isSelected") && Input.GetButtonDown("Jump"))
         {
-           //Cargar escena menú
-;       }
+           SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+         }
 
-        if (PlayImage.GetComponent<Animator>().GetBool("isSelected"))
+        if (PlayImage.GetComponent<Animator>().GetBool("isSelected") && Input.GetButtonDown("Jump"))
         {
-            //Continuar juego
+            PauseGame();
         }
 
-        if (RestartImage.GetComponent<Animator>().GetBool("isSelected"))
+        if (RestartImage.GetComponent<Animator>().GetBool("isSelected") && Input.GetButtonDown("Jump"))
         {
             //Reiniciar escena de juego
         }
 
-        if (SaveImage.GetComponent<Animator>().GetBool("isSelected"))
+        if (SaveImage.GetComponent<Animator>().GetBool("isSelected") && Input.GetButtonDown("Jump"))
         {
             //Guardar juego
         }
