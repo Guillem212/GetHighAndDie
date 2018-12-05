@@ -1446,12 +1446,12 @@ MonoBehaviour:
   MethIcon: {fileID: 5290233157521348824}
   LifeBar: {fileID: 5290233158111520582}
   LifeBarRest: {fileID: 5290233158954334825}
-  player: {fileID: 0}
+  player: {fileID: 1225522325983740, guid: bf6f0361ea9aac7449ba7f398394750c, type: 3}
   restarVida: 0
   amount: 1
-  restLifeDeltaTime: 0
-  restLifeRateDeltaTimeGreen: 30
-  restLifeRateDeltaTimeOrange: 25
+  restLifeDeltaTime: 1
+  restLifeRateDeltaTimeGreen: 120
+  restLifeRateDeltaTimeOrange: 100
   restLifeRate: 10
   LifeBars: {fileID: 5290233158534456902}
 --- !u!1 &5290233157282322211

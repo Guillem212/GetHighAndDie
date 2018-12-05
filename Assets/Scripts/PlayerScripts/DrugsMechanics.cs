@@ -128,11 +128,11 @@ public class DrugsMechanics : MonoBehaviour
             canvas.GetComponent<PlayerManager>().RestAmount(restAmountSpeed);
         }
 
-        if (Input.GetAxis("Meth") != 0 && !methActive)
+        if (Input.GetAxis("Meth") != 0 && !methActive && (GetComponent<playerMovement>().horizontalMove > 0 || GetComponent<playerMovement>().horizontalMove > 0)) 
         {
-    
+            methActive = true;
             StartCoroutine(MethAnim());
-            restLife = true;
+            
             
 
         }
@@ -253,10 +253,10 @@ public class DrugsMechanics : MonoBehaviour
 
             changeColorPanelMeth = true;
             makeRipple = true;
+            restLife = true;
             canvas.GetComponent<PlayerManager>().RestAmount(restAmountMeth);
             Vector3 offset = new Vector3(transform.position.x + 10f * dir.x, transform.position.y, transform.position.z);
             transform.position = offset;
-            methActive = true;
         }
        
 

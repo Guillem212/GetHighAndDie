@@ -15,7 +15,7 @@ public class playerMovement : MonoBehaviour {
 	private Vector3 velocity = new Vector3();
 	Vector3 targetVelocity;
 
-	private float horizontalMove;
+	public float horizontalMove;
 	[SerializeField] private static bool lookingRight = true;
 	private int directionWall, directionLook;
 
