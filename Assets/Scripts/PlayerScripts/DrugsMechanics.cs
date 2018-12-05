@@ -130,10 +130,11 @@ public class DrugsMechanics : MonoBehaviour
 
         if (Input.GetAxis("Meth") != 0 && !methActive)
         {
-            methActive = true;
+    
             StartCoroutine(MethAnim());
             restLife = true;
-            canvas.GetComponent<PlayerManager>().RestAmount(restAmountMeth);
+            
+
         }
 
         if (cocaineActive || hashActive || methActive || speedActive)
@@ -223,16 +224,14 @@ public class DrugsMechanics : MonoBehaviour
         dashMeth();
         yield return new WaitForSeconds(methDelay);
         methActive = false;
+        changeColorPanelMeth = false;
+        makeRipple = false;
     }
 
     public IEnumerator MethAnim()
     {
         anim.SetBool("isCristal", true);
-        makeRipple = !makeRipple;
-        changeColorPanelMeth = !changeColorPanelMeth;
         yield return new WaitForSeconds(.1f);
-        makeRipple = !makeRipple;
-        changeColorPanelMeth = !changeColorPanelMeth;
         anim.SetBool("isCristal", false);
         StartCoroutine(StartMeth());
     }
@@ -251,9 +250,16 @@ public class DrugsMechanics : MonoBehaviour
         hit = Physics2D.Raycast(transform.position + dir * 10f, dir, 0.01f, groundLayer);
         if (hit.collider == null)
         {
+
+            changeColorPanelMeth = true;
+            makeRipple = true;
+            canvas.GetComponent<PlayerManager>().RestAmount(restAmountMeth);
             Vector3 offset = new Vector3(transform.position.x + 10f * dir.x, transform.position.y, transform.position.z);
             transform.position = offset;
+            methActive = true;
         }
+       
+
     }
 
 

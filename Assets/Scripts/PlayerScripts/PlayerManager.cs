@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+
 
 public class PlayerManager : MonoBehaviour
 {
@@ -152,8 +155,12 @@ public class PlayerManager : MonoBehaviour
 
         if (LifeBar.fillAmount <= 0f)
         {
-            RestLifeGameManager();
+            //RestLifeGameManager();
+            SceneManager.LoadScene(0);
+
         }
+
+  
 
 
     }

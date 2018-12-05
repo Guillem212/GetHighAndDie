@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
             }
             else{
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                actualLevel = 0;
+                changeLevel = false;
             }
             levelArray[actualLevel].SetActive(true);
             changeLevel = false;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Restart(){
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       SceneManager.LoadScene(0);
+
     }
 }
