@@ -40,7 +40,12 @@ public class GameManager : MonoBehaviour
 
         if(changeLevel){
             levelArray[actualLevel].SetActive(false);
-            actualLevel++;
+            if(actualLevel < 2){
+                actualLevel++;
+            }
+            else{
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            }
             levelArray[actualLevel].SetActive(true);
             changeLevel = false;
         }
