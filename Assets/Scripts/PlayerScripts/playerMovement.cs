@@ -36,7 +36,7 @@ public class playerMovement : MonoBehaviour {
 	private float fallMultiplier = 7f;
 	private float lowerMultiplier = 2f;
 
-	private bool canPlay = true;
+	public bool canPlay = true;
 
 	private RaycastHit2D hit;
 
@@ -85,7 +85,8 @@ public class playerMovement : MonoBehaviour {
 
         if (!isOnWall && canPlay)
             jumpOnGround();
-		animationUpdate();
+		if(canPlay)
+			animationUpdate();
     }
 
 	void animationUpdate(){

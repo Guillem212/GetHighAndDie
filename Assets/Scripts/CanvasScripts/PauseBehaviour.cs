@@ -115,22 +115,22 @@ public class PauseBehaviour : MonoBehaviour
 
     void SelectAnOption()
     {
-        if (ExitImage.GetComponent<Animator>().GetBool("isSelected") && Input.GetButtonDown("Jump"))
+        if (ExitImage.GetComponent<Animator>().GetBool("isSelected"))
         {
            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
          }
 
-        if (PlayImage.GetComponent<Animator>().GetBool("isSelected") && Input.GetButtonDown("Jump"))
+        if (PlayImage.GetComponent<Animator>().GetBool("isSelected"))
         {
             PauseGame();
         }
 
-        if (RestartImage.GetComponent<Animator>().GetBool("isSelected") && Input.GetButtonDown("Jump"))
+        if (RestartImage.GetComponent<Animator>().GetBool("isSelected"))
         {
             //Reiniciar escena de juego
         }
 
-        if (SaveImage.GetComponent<Animator>().GetBool("isSelected") && Input.GetButtonDown("Jump"))
+        if (SaveImage.GetComponent<Animator>().GetBool("isSelected"))
         {
             //Guardar juego
         }
