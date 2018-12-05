@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public GameObject[] levelArray;
+
+    private int actualLevel;
+    public static bool changeLevel = false;
+
     public static int enemiesKilled = 0;
 
     public static int playerLife = 1;
@@ -22,6 +27,7 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        actualLevel = 0;
     }
 
     void LateUpdate(){
@@ -30,6 +36,13 @@ public class GameManager : MonoBehaviour
         }
         if(playerDiesRestart){
             Restart();
+        }
+
+        if(changeLevel){
+            levelArray[actualLevel].SetActive(false);
+            actualLevel++;
+            levelArray[actualLevel].SetActive(true);
+            changeLevel = false;
         }
     }
 

@@ -1,0 +1,309 @@
+fileFormatVersion: 2
+guid: 237c3aa3ead86d1408c7fbbbf3d27193
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: A hostias hermano_0
+    21300002: A hostias hermano_1
+    21300004: A hostias hermano_2
+    21300006: A hostias hermano_3
+    21300008: A hostias hermano_4
+    21300010: A hostias hermano_5
+    21300012: A hostias hermano_6
+    21300014: A hostias hermano_7
+    21300016: A hostias hermano_8
+    21300018: A hostias hermano_9
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: A hostias hermano_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 679
+        width: 224
+        height: 217
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.34765345}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96addf062c954d45a8752d3e9ed6ce5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A hostias hermano_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 679
+        width: 224
+        height: 217
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3254361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 518ee6af9baf1774d8598fbe181122b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A hostias hermano_2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 679
+        width: 224
+        height: 217
+      alignment: 9
+      pivot: {x: 0.50307465, y: 0.3254361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43fcb16fc50d9b04e852c58119cbdb34
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A hostias hermano_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 455
+        width: 224
+        height: 217
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32258064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94e022192a966c4bb64e6021c54c9a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A hostias hermano_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 455
+        width: 224
+        height: 217
+      alignment: 9
+      pivot: {x: 0.5, y: 0.32718894}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f028ad5b0916b74a838333c04a1e1a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A hostias hermano_5
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 455
+        width: 224
+        height: 217
+      alignment: 9
+      pivot: {x: 0.5044643, y: 0.359447}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 816e1a9aa2d30344ba2d1620251f5f14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A hostias hermano_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 231
+        width: 224
+        height: 217
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3548387}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06dfb9d0f2ffc2948a41c27fc956a046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A hostias hermano_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 231
+        width: 224
+        height: 217
+      alignment: 9
+      pivot: {x: 0.49553573, y: 0.3548387}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d876623899813241a9e43112673d81b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A hostias hermano_8
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 231
+        width: 224
+        height: 217
+      alignment: 9
+      pivot: {x: 0.5044643, y: 0.359447}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d006e8ef9278b6446a2dd2f54601f049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A hostias hermano_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 224
+        height: 219
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35616437}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4956da92e59a2374c9a34d8364b43832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 4b31146aafe0be346a1a38138341e5b9
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

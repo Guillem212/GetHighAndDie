@@ -120,10 +120,16 @@ public class playerMovement : MonoBehaviour {
 		if (detectEnemiesHit() && detectGround()){
 			animAttack = true;
 			FindObjectOfType<AudioManager>().Play("PlayerAttack");
+			StartCoroutine(finishAttack());
 		}
 		else{
 			animAttack = false;
 		}
+	}
+
+	IEnumerator finishAttack(){
+		yield return new WaitForSeconds(0.75f);
+		animAttack = false;
 	}
 
 	//---Movimiento Vertical---\\
