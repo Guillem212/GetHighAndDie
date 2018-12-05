@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rbPlayer;
 
     private Collider2D collider;
-    //public Collider2D colliderEnem;
+    //public GameObject colliderEnem;
 
     private Transform playerPosition;
 
@@ -33,9 +33,8 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponentInParent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
-        //colliderEnem = GetComponentInParent<Collider2D>();
+        //colliderEnem = GetComponentInParent<GameObject>();
         playerPosition = GameObject.FindWithTag("Player").transform;
-
         anim = GetComponentInParent<Animator>();
         enemyPos =GetComponentInParent<SpriteRenderer>();
     }

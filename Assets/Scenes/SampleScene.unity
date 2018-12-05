@@ -191,11 +191,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTricefalo
       objectReference: {fileID: 0}
-    - target: {fileID: 5297920133432104743, guid: b814a149cdaa759409dcd4b1195411a5,
-        type: 3}
-      propertyPath: colliderEnem
-      value: 
-      objectReference: {fileID: 448292824}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b814a149cdaa759409dcd4b1195411a5, type: 3}
 --- !u!1 &73391186 stripped
@@ -460,12 +455,6 @@ Transform:
 --- !u!4 &448292822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5297920133878265419, guid: b814a149cdaa759409dcd4b1195411a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 54919958}
-  m_PrefabAsset: {fileID: 0}
---- !u!70 &448292824 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 44443816000586324, guid: b814a149cdaa759409dcd4b1195411a5,
     type: 3}
   m_PrefabInstance: {fileID: 54919958}
   m_PrefabAsset: {fileID: 0}
@@ -5206,21 +5195,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyGhost
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350756295645299426, guid: 8c8dfdbaf3ae2ae48a55e8df9930868a,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350756295645299426, guid: 8c8dfdbaf3ae2ae48a55e8df9930868a,
-        type: 3}
-      propertyPath: m_SleepingMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3350756295645299426, guid: 8c8dfdbaf3ae2ae48a55e8df9930868a,
-        type: 3}
-      propertyPath: m_Interpolate
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c8dfdbaf3ae2ae48a55e8df9930868a, type: 3}
