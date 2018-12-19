@@ -156,7 +156,8 @@ public class PlayerManager : MonoBehaviour
         if (LifeBar.fillAmount <= 0f)
         {
             //RestLifeGameManager();
-            SceneManager.LoadScene(0);
+            StartCoroutine(loadScene());
+
 
         }
 
@@ -246,6 +247,13 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         anim.SetBool("IsYawn", false);
 
+    }
+
+    IEnumerator loadScene()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(0);
+        TimeManager.DoSlowMotion(false);
     }
 
     public void RestAmount(float Restamount)

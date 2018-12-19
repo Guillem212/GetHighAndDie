@@ -10,7 +10,7 @@ public class DrugsMechanics : MonoBehaviour
     private bool speedActive, cocaineActive, hashActive, methActive;
 
     private Animator anim;
-    private float timeDrugActive = 1f;
+    [SerializeField] private float timeDrugActive = 5f, timeHashActive = 1f;
     [SerializeField]
     private GameObject canvas;
     [SerializeField]
@@ -200,11 +200,9 @@ public class DrugsMechanics : MonoBehaviour
 
     public IEnumerator StartHash()
     {
-        TimeManager.SetDoSlowMo(true);
-        TimeManager.DoSlowMotion();
-        yield return new WaitForSeconds(timeDrugActive);
-        TimeManager.SetDoSlowMo(false);
-        TimeManager.DoNormalTime();
+        TimeManager.DoSlowMotion(true);
+        yield return new WaitForSeconds(timeHashActive);
+        TimeManager.DoSlowMotion(false);
 
         hashActive = false;
     }
