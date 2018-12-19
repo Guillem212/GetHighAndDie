@@ -10,7 +10,7 @@ public class DrugsMechanics : MonoBehaviour
     private bool speedActive, cocaineActive, hashActive, methActive;
 
     private Animator anim;
-    private float timeDrugActive = 5f;
+    private float timeDrugActive = 1f;
     [SerializeField]
     private GameObject canvas;
     [SerializeField]
@@ -68,6 +68,7 @@ public class DrugsMechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (makeRipple)
         {
             mainCamera.GetComponent<RipplePostProcessor>().MakeRipple();
@@ -146,7 +147,7 @@ public class DrugsMechanics : MonoBehaviour
         }
 
         if (restLife)
-            canvas.GetComponent<PlayerManager>().RestLife(restAmount);
+            canvas.GetComponent<PlayerManager>().RestLife();
 
         if (canvas.GetComponent<PlayerManager>().GetLifeBarRest() != canvas.GetComponent<PlayerManager>().GetLifeBarRest() - restAmount)
         {
@@ -199,9 +200,11 @@ public class DrugsMechanics : MonoBehaviour
 
     public IEnumerator StartHash()
     {
-        //RALENTIZAR LA VELOCIDAD DE LOS OBJETOS EXCEPTO LA DEL JUGADOR
+        TimeManager.SetDoSlowMo(true);
+        TimeManager.DoSlowMotion();
         yield return new WaitForSeconds(timeDrugActive);
-        //NORMALIZAR LA VELOCIDAD LOS OBJETOS 
+        TimeManager.SetDoSlowMo(false);
+        TimeManager.DoNormalTime();
 
         hashActive = false;
     }

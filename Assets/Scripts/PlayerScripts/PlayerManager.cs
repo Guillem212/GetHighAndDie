@@ -257,7 +257,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void RestLife(float amountToRest)
+    public void RestLife()
     {
 
 

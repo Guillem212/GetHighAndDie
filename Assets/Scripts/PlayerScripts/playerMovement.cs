@@ -306,4 +306,9 @@ public class playerMovement : MonoBehaviour {
     {
         this.jumpVel = jumpVel;
     }
+
+    public bool GetIsOnWall()
+    {
+        return isOnWall;
+    }
 }
