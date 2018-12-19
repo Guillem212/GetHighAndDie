@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ParticleController : MonoBehaviour
 {
-
-    public Rigidbody2D playerRB;
+    private playerMovement player;
 
     public GameObject particles;
     private GameObject dustNow;
@@ -16,32 +15,30 @@ public class ParticleController : MonoBehaviour
     public LayerMask groundLayer;
     private RaycastHit2D hit;
 
+    private void Awake() {
+        player = GetComponentInParent<playerMovement>();
+    }
 
     void Start()
     {
         dustNow = Instantiate(particles);
         ps = dustNow.GetComponent<ParticleSystem>();
-        ps.Play();
-
     }
 
-    void LateUpdate(){  
-        if (Input.GetAxis("Horizontal") != 0 && detectGround()){
+    void Update(){
+        if (player.horizontalMove != 0 && player.playerSpeedY == 0){
             StartLoop();
         }
-        else{
+        else if(dustNow.activeSelf){
             StartCoroutine("KillParticles");
         }
         dustNow.transform.position = transform.position;
     }
 
     IEnumerator KillParticles(){
-        if (!dustNow.activeSelf){
-            yield return new WaitForSeconds(0.01f);
-        }
         main = ps.main;
         main.loop = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         dustNow.SetActive(false);
     }
 
@@ -53,14 +50,5 @@ public class ParticleController : MonoBehaviour
         main = ps.main;
         main.loop = true;
     }
-
-    bool detectGround(){	
-		//Debug.DrawRay(offset, Vector2.down, Color.green);
-		hit = Physics2D.CircleCast(transform.position, 0.05f, Vector2.down, 0.05f, groundLayer);
-		if (hit.collider != null) {
-			return true;
-		}
-		return false;
-	}
 
 }

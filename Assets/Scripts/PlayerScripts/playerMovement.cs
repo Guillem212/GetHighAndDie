@@ -22,6 +22,11 @@ public class playerMovement : MonoBehaviour {
 	private Rigidbody2D rb;
 
 
+	//Variables publicas para el script de Particle Controller
+	[HideInInspector]
+	public float playerSpeedY;
+
+
 	[SerializeField] private LayerMask groundLayer; //Detecta el layerMask del suelo.
     [SerializeField] private LayerMask enemyLayer;
 
@@ -104,7 +109,7 @@ public class playerMovement : MonoBehaviour {
 		if(canPlay){
 			if(rb.velocity.x == 0){
 				onWall();
-				if(directionLook != 0 && canJump && isOnWall)
+				if(canJump && isOnWall)
 					StartCoroutine(jumpOnWall(directionLook));
 			}
 			if(canMove && !isOnWall){
@@ -126,6 +131,8 @@ public class playerMovement : MonoBehaviour {
 		else{
 			rb.velocity = Vector2.zero;
 		}
+
+		playerSpeedY = rb.velocity.y;
 	}
 
 	void attackPlayer(){
@@ -163,21 +170,16 @@ public class playerMovement : MonoBehaviour {
 	void onWall(){
 		if(!detectGround()){
 			if(detectWall()){
-				if(directionLook == directionWall && horizontalMove  == directionWall){
-					isOnWall = true;
+				isOnWall = true;
+				wannaJumpWall = false;
 
-					wannaJumpWall = false;
+				if(!flipped){
+					flipped = true;
+					transform.Rotate(0f, 180f, 0f);
+				}
 
-					if(!flipped){
-						flipped = true;
-						transform.Rotate(0f, 180f, 0f);
-					}
-					wallVel = new Vector2(directionLook, rb.velocity.y / 2);
-					rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
-				}
-				else{
-					isOnWall = false;
-				}
+				wallVel = new Vector2(directionLook, rb.velocity.y / 2);
+				rb.velocity = Vector3.SmoothDamp(rb.velocity, wallVel, ref velocity, smoothMove);
 			}
 			else{
 				isOnWall = false;
@@ -186,24 +188,35 @@ public class playerMovement : MonoBehaviour {
 		else{
 			isOnWall = false;
 		}
-
 	}
 
-	//---Salto en el Muro---\\
 	IEnumerator jumpOnWall(float direction){
-		FindObjectOfType<AudioManager>().Play("PlayerJumpOnWall");
-		animJumping = true;
-		wannaJumpWall = true;
-		isOnWall = false;
+		if(horizontalMove == 0){
+			FindObjectOfType<AudioManager>().Play("PlayerJumpOnWall");
 
-		horizontalMove = -direction;
-		jumpWall.x *= -direction;
+			jumpWall.x *= -directionWall;
+			rb.AddForce(jumpWall * jumpVel* 50);
 
-		rb.AddForce(jumpWall * jumpVel * 50);
+			animJumping = true;
+			wannaJumpWall = true;
+			isOnWall = false;
+		}
+		else if(horizontalMove == -directionWall){
+			FindObjectOfType<AudioManager>().Play("PlayerJumpOnWall");
+			
+			jumpWall.x *= horizontalMove;
+			rb.AddForce(jumpWall * jumpVel * 50);
 
-		yield return new WaitForSeconds(.4f);
+			animJumping = true;
+			wannaJumpWall = true;
+			isOnWall = false;
+		}
+		jumpWall = new Vector2(1f,2f);
+
+		yield return new WaitForSeconds(.1f);
 		wannaJumpWall = false;
 	}
+
 
 	//---Salto Normal---\\
 	void jumpOnGround(){
@@ -216,7 +229,7 @@ public class playerMovement : MonoBehaviour {
 			animGoJump = false;
 		}
 		if (rb.velocity.y < 0){
-			rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier -1) * Time.fixedDeltaTime; 
+			rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier -1) * Time.fixedDeltaTime;
 		}
 		else if (rb.velocity.y > 0 && !stillJumping){
 			rb.velocity += Vector2.up * Physics2D.gravity.y * (lowerMultiplier -1) * Time.fixedDeltaTime;
@@ -224,7 +237,7 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	//---Detecta el Suelo---\\
-	bool detectGround(){
+	public bool detectGround(){
 		hit = Physics2D.CircleCast(transform.position + offset, 0.2f, Vector2.down, 0.2f, groundLayer);
 		if (hit.collider != null) {
 			return true;
