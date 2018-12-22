@@ -41,6 +41,7 @@ public class playerMovement : MonoBehaviour {
 	private float fallMultiplier = 7f;
 	private float lowerMultiplier = 2f;
 
+	[HideInInspector]
 	public bool canPlay = true;
 
 	private RaycastHit2D hit;
@@ -72,6 +73,7 @@ public class playerMovement : MonoBehaviour {
     }
 
 	void Update(){
+		//Si tomas una droga te quita el control del juego
 		if(anim.GetBool("isSmoking") || anim.GetBool("isCocaine") || anim.GetBool("isCristal")){
 			canPlay = false;
 		}
@@ -104,8 +106,7 @@ public class playerMovement : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		//Da un valor entre movementSpeed y -movementSpeed por el tiempo.
-		//Diferencia entre la situacion del muro y el movimiento normal.
+		//El canPlay decide se te puedes mover o no.
 		if(canPlay){
 			if(rb.velocity.x == 0){
 				onWall();
@@ -135,6 +136,7 @@ public class playerMovement : MonoBehaviour {
 		playerSpeedY = rb.velocity.y;
 	}
 
+	//---Deicide que se hace si se pulsa el boton de atacar---\\
 	void attackPlayer(){
 		if (detectEnemiesHit() && detectGround()){
 			animAttack = true;
@@ -167,6 +169,7 @@ public class playerMovement : MonoBehaviour {
 		}
 	}
 
+	//---Detecta si estas en un muro o no---\\
 	void onWall(){
 		if(!detectGround()){
 			if(detectWall()){
@@ -190,22 +193,41 @@ public class playerMovement : MonoBehaviour {
 		}
 	}
 
+	//Es una corutina para que te quite el control durante un poco de tiempo, exactamente 0.1 seg---\\
 	IEnumerator jumpOnWall(float direction){
+		//Salto sin direccion
 		if(horizontalMove == 0){
 			FindObjectOfType<AudioManager>().Play("PlayerJumpOnWall");
 
 			jumpWall.x *= -directionWall;
+			jumpWall.y = 0;
 			rb.AddForce(jumpWall * jumpVel* 50);
+			horizontalMove = -directionWall;
 
 			animJumping = true;
 			wannaJumpWall = true;
 			isOnWall = false;
 		}
+		//Salto en dirección contraria a la pared
 		else if(horizontalMove == -directionWall){
 			FindObjectOfType<AudioManager>().Play("PlayerJumpOnWall");
 			
 			jumpWall.x *= horizontalMove;
+			jumpWall.y = 2;
 			rb.AddForce(jumpWall * jumpVel * 50);
+
+			animJumping = true;
+			wannaJumpWall = true;
+			isOnWall = false;
+		}
+		//Salto en la misma direccion de la pared
+		else if (horizontalMove == directionWall){
+			FindObjectOfType<AudioManager>().Play("PlayerJumpOnWall");
+			
+			jumpWall.x *= -horizontalMove;
+			jumpWall.y = 1;
+			rb.AddForce(jumpWall * jumpVel * 50);
+			horizontalMove = -horizontalMove;
 
 			animJumping = true;
 			wannaJumpWall = true;
@@ -213,7 +235,7 @@ public class playerMovement : MonoBehaviour {
 		}
 		jumpWall = new Vector2(1f,2f);
 
-		yield return new WaitForSeconds(.1f);
+		yield return new WaitForSeconds(0.1f);
 		wannaJumpWall = false;
 	}
 
@@ -245,6 +267,7 @@ public class playerMovement : MonoBehaviour {
 		return false;
 	}
 
+	//---Detecta a los enemigos cuando golpeas---\\
 	bool detectEnemiesHit(){
 		if(lookingRight){
 			hit = Physics2D.Raycast(transform.position , Vector2.right, 1,  enemyLayer);
@@ -262,6 +285,7 @@ public class playerMovement : MonoBehaviour {
 		return false;
 	}
 
+	//---Detecta la colision con los muros
 	bool detectWall(){
 		if(lookingRight){
 			hit = Physics2D.Raycast(transform.position, Vector2.right, 0.5f,  groundLayer);
