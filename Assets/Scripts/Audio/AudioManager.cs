@@ -49,6 +49,16 @@ public class AudioManager : MonoBehaviour {
         s.source.Play();
         
     }
+
+    public void SetVolume(float volume) {
+        
+        foreach (Sound s in sounds) {
+            s.source.volume = volume;
+            if(s.name == "MainTheme")
+                Debug.Log("Volume of Main Theme is: " + s.source.volume);
+        }
+
+    }
 }
 
 // FindObjectOfType<AudioManager>().Play("SoundName");
