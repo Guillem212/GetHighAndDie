@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4208479404629328}
   - component: {fileID: 114330318100182174}
+  - component: {fileID: 1048504865}
   m_Layer: 0
   m_Name: ColliderParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4208479404629328
 Transform:
   m_ObjectHideFlags: 0
@@ -43,11 +44,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012d4aeb8e09998489dc9d102b5db7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRB: {fileID: 50307222469397032}
-  particles: {fileID: 1079236739679896, guid: 36b3c0b726b22114c968b3cc9dae0d21, type: 3}
+  particles: {fileID: 6134211110680500726, guid: 10f29066a4646e643b4ca84006e542ee,
+    type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!58 &1048504865
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187094820352222}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1225522325983740
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +81,7 @@ GameObject:
   - component: {fileID: 962387163}
   - component: {fileID: 992526508}
   - component: {fileID: 421522142}
+  - component: {fileID: 842500355}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -146,14 +164,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d807b3469726a134091af6568f2935ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 400
+  movementSpeed: 600
+  horizontalMove: 0
+  playerSpeedY: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
-  jumpVel: 10
+  jumpVel: 12
+  canPlay: 1
 --- !u!50 &50307222469397032
 Rigidbody2D:
   serializedVersion: 4
@@ -238,17 +259,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   methDelay: 1
+  timeDrugActive: 5
+  timeHashActive: 1
   canvas: {fileID: 0}
   panelColorDrugs: {fileID: 0}
   restAmountCocaine: 0.125
   restAmountHash: 0.125
   restAmountSpeed: 0.125
-  restAmountMeth: 0.125
+  restAmountMeth: 0.2
   mainCamera: {fileID: 0}
   speed: 0
   delay: 0.05
-  delayPress: 0
-  startDelay: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &842500355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225522325983740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655c177b608ec6d4abdc7377bfa77f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minFallTime: 1.8
+  amountFallDamage: 0.25
+  currentFallTime: 0
+  glassTexture: {fileID: 0}
+  canvas: {fileID: 0}

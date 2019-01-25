@@ -32,18 +32,8 @@ public class DrugsMechanics : MonoBehaviour
 
     //DASH VARAIABLES
     [SerializeField]
-    float speed, delay = 0.05f, delayPress;
-    [SerializeField]
-    private bool startDelay;
-    private Rigidbody2D rb;
-    private int rightPress, leftPress, upPress, downPress;
-    private float timePassed, timePassedPress;
-    private bool startTimer;
+    float speed, delay = 0.05f;
 
-    //Dash de Guillem
-    private bool canDash = true;
-    private float dashCD = 2f;
-    private bool dashInput;
     private RaycastHit2D hit;
     [SerializeField]
     private LayerMask groundLayer;
@@ -57,10 +47,6 @@ public class DrugsMechanics : MonoBehaviour
 
         cocaineJump = GetComponent<playerMovement>().GetJumpVel() * 1.5f;
         jumpNormal = GetComponent<playerMovement>().GetJumpVel();
-
-        rightPress = 0;
-        leftPress = 0;
-        rb = GetComponent<Rigidbody2D>();
 
         anim = GetComponent<Animator>();
     }

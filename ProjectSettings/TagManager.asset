@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Level1
+  - Level2
+  - Level3
   - Level
+  - CanvasManger
   layers:
   - Default
   - TransparentFX

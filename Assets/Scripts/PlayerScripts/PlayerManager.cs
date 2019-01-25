@@ -17,10 +17,9 @@ public class PlayerManager : MonoBehaviour
     private Image SpeedIcon;
     [SerializeField]
     private Image MethIcon;
-    [SerializeField]
-    private Image LifeBar;
-    [SerializeField]
-    private Image LifeBarRest;
+
+    public  Image LifeBar;
+    public  Image LifeBarRest;
 
     [SerializeField]
     private GameObject player;
@@ -33,7 +32,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private bool restarVida = false;
     [SerializeField]
-    private float amount = 1f;
+    public float amount = 1f;
 
     [SerializeField]
     private bool restLifeDeltaTime = false;
@@ -54,6 +53,9 @@ public class PlayerManager : MonoBehaviour
     private int randomNumberBlink;
     private int randomNumberYawn;
 
+    private GameObject gm;
+    private GameManager gameManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,10 +67,13 @@ public class PlayerManager : MonoBehaviour
         MethFillAmount = MethIcon.fillAmount;
         anim = LifeBars.GetComponent<Animator>();
 
+        gm = GameObject.FindWithTag("GameController");
+        gameManager = gm.GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (player.GetComponent<DrugsMechanics>().GetCocaineActive())
 
@@ -155,10 +160,7 @@ public class PlayerManager : MonoBehaviour
 
         if (LifeBar.fillAmount <= 0f)
         {
-            //RestLifeGameManager();
             StartCoroutine(loadScene());
-
-
         }
 
   
@@ -251,8 +253,9 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator loadScene()
     {
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(0);
+        gameManager.RestartWorld();
+        yield return new WaitForSeconds(0.3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         TimeManager.DoSlowMotion(false);
     }
 
@@ -321,12 +324,6 @@ public class PlayerManager : MonoBehaviour
     public float GetAmount()
     {
         return amount;
-    }
-
-    public void RestLifeGameManager()
-    {
-        GameManager.playerLife--;
-
     }
 
 
