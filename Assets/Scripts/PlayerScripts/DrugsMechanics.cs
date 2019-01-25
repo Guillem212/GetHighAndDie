@@ -198,7 +198,7 @@ public class DrugsMechanics : MonoBehaviour
         anim.SetBool("isSmoking", true);
         makeRipple = !makeRipple;
         changeColorPanelHash = !changeColorPanelHash;
-        yield return new WaitForSeconds(2.6f);
+        yield return new WaitForSeconds(1f);
         makeRipple = !makeRipple;
         changeColorPanelHash = !changeColorPanelHash;
         anim.SetBool("isSmoking", false);

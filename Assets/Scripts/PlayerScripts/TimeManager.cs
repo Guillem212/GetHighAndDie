@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class TimeManager
 {
-    private static float slowMoTime = 0.3f, normalTime = 1.0f;
+    private static float slowMoTime = 0.7f, normalTime = 1.0f;
 
     public static void DoSlowMotion(bool doSlowMo)
     {
