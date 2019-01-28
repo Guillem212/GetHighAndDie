@@ -92,3 +92,9 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: DarkDefeat
+    clip: {fileID: 8300000, guid: dc0bab6f59857594ab47efe49ffa0914, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
