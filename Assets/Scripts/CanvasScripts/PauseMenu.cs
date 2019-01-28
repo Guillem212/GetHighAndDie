@@ -49,12 +49,6 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Scenes/Menu");
     }
 
-    public void QuitGame() {
-        // Completado
-        Debug.Log("Quitting game...");
-        Application.Quit();
-    }
-
     public void BackButton() {
         pauseMenuUI.SetActive(true);
         controlsUI.SetActive(false);

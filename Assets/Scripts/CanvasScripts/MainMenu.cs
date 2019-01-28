@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         // Quitar y sustituir por LevelManager
-        SceneManager.LoadScene("Scenes/Mundo 1");
+        SceneManager.LoadScene("Scenes/World1Level1");
     }
 
     public void PlayTutorial()
