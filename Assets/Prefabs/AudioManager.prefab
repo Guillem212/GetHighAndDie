@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8128605983318949049}
   - component: {fileID: 5398465845253330321}
   m_Layer: 0
-  m_Name: AudioManager 1
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,4 +85,10 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: MenuTheme
+    clip: {fileID: 8300000, guid: 208efe72f54fd5d4e98500123c729acd, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
