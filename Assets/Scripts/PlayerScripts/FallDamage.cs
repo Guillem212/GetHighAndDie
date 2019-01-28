@@ -10,10 +10,14 @@ public class FallDamage : MonoBehaviour
     [SerializeField] private GameObject glassTexture, canvas;
     private float timer = 0f;
     private float timeToWait = 1f;//Lo que tarda en hacer las animaciones y el personaje esta suspendido en el aire.
-    
-   
+    private Rigidbody2D rb;
+    [SerializeField]
+    private float velocityDamage = -20;
+
     void Update()
     {
+        rb = GetComponent<Rigidbody2D>();
+        
         //Para evitar que cuando uses una droga en el aire siga contando el tiempo que el personaje esta en el aire:
         if ((GetComponent<DrugsMechanics>().GetSpeedActive() || GetComponent<DrugsMechanics>().GetCocaineActive()) && timer < timeToWait)
             timer += Time.deltaTime;
@@ -23,7 +27,7 @@ public class FallDamage : MonoBehaviour
 
 
 
-        if ( (timer > timeToWait || timer == 0f) && !GetComponent<playerMovement>().detectGround() && (!GetComponent<DrugsMechanics>().GetSpeedActive() || !GetComponent<DrugsMechanics>().GetCocaineActive()))
+        if ( (rb.velocity.y == velocityDamage || timer == 0f) && !GetComponent<playerMovement>().detectGround() && (!GetComponent<DrugsMechanics>().GetSpeedActive() || !GetComponent<DrugsMechanics>().GetCocaineActive()))
         {
             currentFallTime += Time.deltaTime;
 
@@ -54,7 +58,13 @@ public class FallDamage : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
             currentFallTime = 0f;
+             
+
+
     }
+
+
+
 
     public IEnumerator FadeTexture(float aValue, float aTime)
     {

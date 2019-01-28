@@ -337,6 +337,6 @@ public class playerMovement : MonoBehaviour {
 
     public bool GetIsOnWall()
     {
-        return isOnWall;
+        return this.isOnWall;
     }
 }
