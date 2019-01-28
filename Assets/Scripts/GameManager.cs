@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
 {
 
     //public Animator animator;
-    public PlayerManager playerManager;
+    //public PlayerManager playerManager;
 
     public static GameManager instance;
 
-    private int actualLevel;
-    private int actualWorld = 0;
+    public int actualLevel;
+    public int actualWorld;
 
     public static int enemiesKilled = 0;
     public static int playerLife = 1;
@@ -31,11 +31,12 @@ public class GameManager : MonoBehaviour
 
     void Start(){
         actualLevel = 0;
+        actualWorld = 1;
         //animator = GetComponentInChildren<Animator>();
         //mText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         //mText.text = "World " + actualWorld.ToString() + " Level " + (actualLevel+1).ToString();
 
-        playerManager = GameObject.FindWithTag("CanvasManger").GetComponent<PlayerManager>();
+        //playerManager = GameObject.FindWithTag("CanvasManger").GetComponent<PlayerManager>();
     }
 
     void LateUpdate(){
