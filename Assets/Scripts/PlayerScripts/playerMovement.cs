@@ -15,6 +15,7 @@ public class playerMovement : MonoBehaviour {
 	private Vector3 velocity = new Vector3();
 	Vector3 targetVelocity;
 
+	[HideInInspector]
 	public float horizontalMove;
 	[SerializeField] private static bool lookingRight = true;
 	private int directionWall, directionLook;
@@ -85,7 +86,6 @@ public class playerMovement : MonoBehaviour {
 			horizontalMove = Input.GetAxis("Horizontal");
 		}
 
-		canJump = Input.GetButtonDown("Jump");
 		stillJumping = Input.GetButton("Jump");
 		canAttack = Input.GetButtonDown("Attack");
 		canMove = horizontalMove != 0;
@@ -108,6 +108,7 @@ public class playerMovement : MonoBehaviour {
 	void FixedUpdate () {
 		//El canPlay decide se te puedes mover o no.
 		if(canPlay){
+			canJump = Input.GetButtonDown("Jump");
 			if(rb.velocity.x == 0){
 				onWall();
 				if(canJump && isOnWall)

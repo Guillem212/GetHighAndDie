@@ -67,9 +67,6 @@ public class PlayerManager : MonoBehaviour
         MethFillAmount = MethIcon.fillAmount;
         anim = LifeBars.GetComponent<Animator>();
 
-        gm = GameObject.FindWithTag("GameController");
-        gameManager = gm.GetComponent<GameManager>();
-
     }
 
     // Update is called once per frame
@@ -160,7 +157,7 @@ public class PlayerManager : MonoBehaviour
 
         if (LifeBar.fillAmount <= 0f)
         {
-            StartCoroutine(loadScene());
+            //StartCoroutine(loadScene());
         }
 
   
@@ -253,9 +250,8 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator loadScene()
     {
-        gameManager.RestartWorld();
         yield return new WaitForSeconds(0.3f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         TimeManager.DoSlowMotion(false);
     }
 
