@@ -12,9 +12,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        LevelChangerScript.Instance.FadeToNextLevel("World1Level1");
+        LevelChangerScript.Instance.FadeToNextLevel("VideoScene");
         FindObjectOfType<AudioManager>().Stop("MenuTheme");
-        FindObjectOfType<AudioManager>().Play("MainTheme");
     }
 
     public void PlayTutorial()

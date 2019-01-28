@@ -30,7 +30,7 @@ public class LevelChangerScript : MonoBehaviour
     public void FadeToNextLevel(string nameScene)
     {
         if(nameScene != "Tutorial"){
-            if(nameScene == "Menu"){
+            if(nameScene == "Menu" || nameScene == "VideoScene" || nameScene == "FinalPaper"){
                 GameManager.instance.actualWorld = 1;
                 GameManager.instance.actualLevel = 0;
                 text.text = " ";
