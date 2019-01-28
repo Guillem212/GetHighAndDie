@@ -74,6 +74,9 @@ public class playerMovement : MonoBehaviour {
     }
 
 	void Update(){
+
+        if (PauseMenu.GameIsPaused == true)
+            rb.velocity = new Vector3(0, 0, 0);
 		//Si tomas una droga te quita el control del juego
 		if(anim.GetBool("isSmoking") || anim.GetBool("isCocaine") || anim.GetBool("isCristal")){
 			canPlay = false;
@@ -108,7 +111,7 @@ public class playerMovement : MonoBehaviour {
 	void FixedUpdate () {
 		//El canPlay decide se te puedes mover o no.
 		if(canPlay){
-			canJump = Input.GetButtonDown("Jump");
+			canJump = (Input.GetButtonDown("Jump") && PauseMenu.GameIsPaused == false);
 			if(rb.velocity.x == 0){
 				onWall();
 				if(canJump && isOnWall)

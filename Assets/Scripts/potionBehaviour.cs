@@ -9,7 +9,7 @@ public class potionBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject playerManager;
     [SerializeField]
-    private float lifeToAdd = 0.0625f;
+    private float lifeToAdd = 0.0125f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,16 +27,19 @@ public class potionBehaviour : MonoBehaviour
             potionCatched = true;
         }
 
-        if (potionCatched && playerManager.GetComponent<PlayerManager>().GetLifeBar() < playerManager.GetComponent<PlayerManager>().GetAmount())
+        if (potionCatched && playerManager.GetComponent<PlayerManager>().GetLifeBar() < playerManager.GetComponent<PlayerManager>().GetLifeBarRest())
         {
-            playerManager.GetComponent<PlayerManager>().AddLife(lifeToAdd);   
-        }
+            playerManager.GetComponent<PlayerManager>().AddLife(lifeToAdd);
+            GetComponent<SpriteRenderer>().color = new Color(1,1,1,0f);
 
-        if (potionCatched && playerManager.GetComponent<PlayerManager>().GetLifeBar() >= playerManager.GetComponent<PlayerManager>().GetAmount())
-        {
-            potionCatched = false;
-            Destroy(gameObject);
+            if (potionCatched && playerManager.GetComponent<PlayerManager>().GetLifeBar() >= playerManager.GetComponent<PlayerManager>().GetLifeBarRest())
+            {
+                potionCatched = false;
+                Destroy(gameObject);
+            }
         }
+ 
+       
     }
 }
 

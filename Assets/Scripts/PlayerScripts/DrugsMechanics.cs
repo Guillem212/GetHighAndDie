@@ -115,7 +115,7 @@ public class DrugsMechanics : MonoBehaviour
             canvas.GetComponent<PlayerManager>().RestAmount(restAmountSpeed);
         }
 
-        if (Input.GetAxis("Meth") != 0 && !methActive && (GetComponent<playerMovement>().horizontalMove > 0 || GetComponent<playerMovement>().horizontalMove > 0)) 
+        if (Input.GetAxis("Meth") != 0 && !methActive && (GetComponent<playerMovement>().horizontalMove > 0 || GetComponent<playerMovement>().horizontalMove < 0)) 
         {
             methActive = true;
             StartCoroutine(MethAnim());

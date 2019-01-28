@@ -32,7 +32,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private bool restarVida = false;
     [SerializeField]
-    public float amount = 1f;
+    private float amount = 1f;
 
     [SerializeField]
     private bool restLifeDeltaTime = false;
