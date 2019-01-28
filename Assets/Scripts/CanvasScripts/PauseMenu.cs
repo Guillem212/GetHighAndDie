@@ -46,7 +46,7 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu() {
         // Completado
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Scenes/Menu");
+        LevelChangerScript.Instance.FadeToNextLevel("Menu");
     }
 
     public void BackButton() {
