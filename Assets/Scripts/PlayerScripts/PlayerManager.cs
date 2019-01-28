@@ -170,6 +170,7 @@ public class PlayerManager : MonoBehaviour
 
     public IEnumerator deathTrigger(){
         playerAnimator.SetBool("isDeath", true);
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
