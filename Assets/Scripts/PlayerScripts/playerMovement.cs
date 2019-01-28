@@ -89,6 +89,7 @@ public class playerMovement : MonoBehaviour {
 			horizontalMove = Input.GetAxis("Horizontal");
 		}
 
+		canJump = (Input.GetButtonDown("Jump") && PauseMenu.GameIsPaused == false);
 		stillJumping = Input.GetButton("Jump");
 		canAttack = Input.GetButtonDown("Attack");
 		canMove = horizontalMove != 0;
@@ -111,10 +112,9 @@ public class playerMovement : MonoBehaviour {
 	void FixedUpdate () {
 		//El canPlay decide se te puedes mover o no.
 		if(canPlay){
-			canJump = (Input.GetButtonDown("Jump") && PauseMenu.GameIsPaused == false);
 			if(rb.velocity.x == 0){
 				onWall();
-				if(canJump && isOnWall)
+				if(Input.GetButton("Jump") && isOnWall)
 					StartCoroutine(jumpOnWall(directionLook));
 			}
 			if(canMove && !isOnWall){

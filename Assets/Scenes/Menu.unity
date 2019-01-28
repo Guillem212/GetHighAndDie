@@ -4785,44 +4785,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6930536440874696430, guid: 2eb5dd09919783f4da17ef95bab04c50,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3270393712127300091, guid: 2eb5dd09919783f4da17ef95bab04c50,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039722479878723276, guid: 2eb5dd09919783f4da17ef95bab04c50,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1088
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039722479878723276, guid: 2eb5dd09919783f4da17ef95bab04c50,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2825473047287369816, guid: 2eb5dd09919783f4da17ef95bab04c50,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2825473047287369816, guid: 2eb5dd09919783f4da17ef95bab04c50,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2825473047287369816, guid: 2eb5dd09919783f4da17ef95bab04c50,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8654336833257314671, guid: 2eb5dd09919783f4da17ef95bab04c50,
-        type: 3}
-      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

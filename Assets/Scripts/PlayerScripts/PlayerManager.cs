@@ -157,7 +157,7 @@ public class PlayerManager : MonoBehaviour
 
         if (LifeBar.fillAmount <= 0f)
         {
-            //StartCoroutine(loadScene());
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
   

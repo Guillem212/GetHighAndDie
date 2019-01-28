@@ -60,10 +60,10 @@ public class EnemyController : MonoBehaviour
     IEnumerator deadAnim(){
         anim.SetBool("isDead", true);
         yield return new WaitForSeconds(0.1f);
+        Collider2D aux = GetComponentInParent<Collider2D>();
+        aux.enabled = false;
         rb.bodyType = RigidbodyType2D.Static;
         collider.enabled = false;
-        gameObject.GetComponentInParent<GameObject>().SetActive(false);
-        //colliderEnem.enabled = false;
 
 
     }
