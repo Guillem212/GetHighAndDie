@@ -7,7 +7,13 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // Quitar y sustituir por LevelManager
+        SceneManager.LoadScene("Scenes/Mundo 1");
+    }
+
+    public void PlayTutorial()
+    {
+        SceneManager.LoadScene("Scenes/Tutorial");
     }
 
     public void QuitGame()
