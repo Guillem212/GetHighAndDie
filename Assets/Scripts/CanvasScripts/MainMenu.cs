@@ -7,18 +7,16 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        // Quitar y sustituir por LevelManager
-        SceneManager.LoadScene("Scenes/World1Level1");
+        LevelChangerScript.Instance.FadeToNextLevel("World1Level1");
     }
 
     public void PlayTutorial()
     {
-        SceneManager.LoadScene("Scenes/Tutorial");
+        LevelChangerScript.Instance.FadeToNextLevel("Tutorial");
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit!");
         Application.Quit();
     }
 }
