@@ -30,10 +30,6 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    void Start () {
-        Play("MainTheme");
-    }
-
     public void Play(string _name) {
         /* foreach (Sound s in sounds) {
             if(s.name == _name)
@@ -48,6 +44,15 @@ public class AudioManager : MonoBehaviour {
         }
         s.source.Play();
         
+    }
+
+    public void Stop(string _name) {
+        Sound s = Array.Find(sounds, sound => sound.name == _name);
+        if (s == null) {
+            Debug.LogWarning("AudioManager: sonido/musica -> " + name + " no encontrado");
+            return;
+        }
+        s.source.Stop();
     }
 
     public void SetVolume(float volume) {

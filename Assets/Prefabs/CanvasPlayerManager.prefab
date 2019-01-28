@@ -1525,9 +1525,9 @@ MonoBehaviour:
   restarVida: 0
   amount: 2.18
   restLifeDeltaTime: 1
-  restLifeRateDeltaTimeGreen: 60
-  restLifeRateDeltaTimeOrange: 40
-  restLifeRate: 2
+  restLifeRateDeltaTimeGreen: 120
+  restLifeRateDeltaTimeOrange: 100
+  restLifeRate: 10
   LifeBars: {fileID: 5290233158534456902}
 --- !u!1 &5290233157282322211
 GameObject:

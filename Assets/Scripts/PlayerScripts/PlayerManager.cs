@@ -24,6 +24,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    private Animator playerAnimator;
+
     private float CocaineFillAmount;
     private float HashFillAmount;
     private float SpeedFillAmount;
@@ -66,6 +68,7 @@ public class PlayerManager : MonoBehaviour
         SpeedFillAmount = SpeedIcon.fillAmount;
         MethFillAmount = MethIcon.fillAmount;
         anim = LifeBars.GetComponent<Animator>();
+        playerAnimator = player.GetComponent<Animator>();
 
     }
 
@@ -157,11 +160,19 @@ public class PlayerManager : MonoBehaviour
 
         if (LifeBar.fillAmount <= 0f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            StartCoroutine(deathTrigger());
         }
 
   
 
+
+    }
+
+    public IEnumerator deathTrigger(){
+        playerAnimator.SetBool("isDeath", true);
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
 
